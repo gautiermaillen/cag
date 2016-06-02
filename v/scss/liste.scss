@@ -1,0 +1,79 @@
+
+/* liste.scss */
+
+body
+{
+	ul.lCat
+	{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: 20px 6px 15px;
+
+		li
+		{
+			padding: 11px 40px 0;
+			margin: 0.5px;
+			background: rgba(0,30,80,0.85);
+			flex: 1;
+			transition: 0.3s;
+			border-radius: 2px;
+
+			a
+			{
+				transition: 0.3s;
+				display: block;
+				margin-bottom: 10px;
+			    text-transform: uppercase;
+				text-align: center;
+				letter-spacing: 0.1em;
+				font-weight: bold;
+				color: white;
+			}
+		}
+	}
+
+	ul.lCat li:hover
+	{
+		background: rgba(0,30,80,0.8);
+	}
+
+	ul.lTshirt
+	{
+		li
+		{
+			margin: 6px 4px;
+			border-radius: 2px;
+			background: rgba(0,0,0,0.04);
+			transition: 0.3s;
+
+			a
+			{
+				font-size: 0.75em;
+				text-transform: uppercase;
+				text-align: center;
+				letter-spacing: 0.1em;
+				color: black;
+
+				display: block;
+
+				padding: 5px 10px 0;
+				box-shadow: 0 0 2px solid rgba(0,0,0,0.04);
+
+				p
+				{
+					font-size: 0.9em;
+					font-style: italic;
+					opacity: 0.6;
+				}
+			}
+		}
+	}
+
+	ul.lTshirt li:hover
+	{
+		background: rgba(0,0,0,0.08);
+	}
+}
+
+
