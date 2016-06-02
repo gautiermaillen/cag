@@ -5,7 +5,7 @@
 	require_once("./c/BoutiqueControler.php");
 
 	$operation_permise=[
-		"listes"
+		"liste"
 	];
 	
 	//Récupérer l'opération 
