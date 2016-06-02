@@ -34,7 +34,7 @@
 			break;
 	}
 
-	// var_dump($tabTshirt);
+	var_dump($tabTshirt);
 	
 
 
