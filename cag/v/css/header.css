@@ -1,0 +1,35 @@
+/* header.scss */
+/* line 5, ../scss/header.scss */
+body {
+  margin: 0 auto;
+}
+/* line 9, ../scss/header.scss */
+body h1 {
+  font-size: 2em;
+  margin-bottom: 1.5em;
+  float: left;
+  font-weight: bold;
+}
+/* line 17, ../scss/header.scss */
+body h2 {
+  margin: 2em 0;
+}
+/* line 22, ../scss/header.scss */
+body ul.nav {
+  float: right;
+  display: flex;
+  justify-content: space-between;
+}
+/* line 28, ../scss/header.scss */
+body ul.nav a {
+  padding: 0 0 5px 0;
+  margin-left: 50px;
+  border-bottom: 1px solid black;
+  transition: 0.4s;
+  opacity: 0.8;
+}
+/* line 37, ../scss/header.scss */
+body ul.nav a:hover {
+  opacity: 1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+}
