@@ -29,7 +29,7 @@
 			break;
 
 		case "tri":
-			$TabTriTshirt = $Tc->listeTriee($_GET['createurs'], $_GET['matieres'], $_GET['categories']);
+			$TabTriTshirt = $Tc->listeTriee($_GET['createur'], $_GET['matiere'], $_GET['categorie']);
 			echo json_encode($tabTriTshirt);
 			break;
 	}
