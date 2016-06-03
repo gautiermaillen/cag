@@ -87,14 +87,14 @@
         public function listeRech($saisie)
         {
             $sql = "SELECT
-                prod_nom
+                prod_nom,
                 prod_id
                 FROM produits
                 WHERE prod_nom
                 LIKE :a";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([':a'=>"%".$saisie."%"]);
-            $this->listeRech = $stmt->fetchAll(PDO::FETCH_CLASS, "Tshirt");
+            $stmt->execute([":a"=>"%".$saisie."%"]);
+            $this->listeRech = $stmt->fetchAll(PDO::FETCH_OBJ, "Tshirt");
 			return $this->listeRech;          
         }
 	}
