@@ -10,6 +10,9 @@
 		private $listeCategories=[];
 		private $listeTriee=[];
         private $listeRech=[];
+        private $ajouterTshirt=[];
+        /*private $modifierTshirt=[];
+        private $supprimerTshirt=[];*/
 		private $pdo;
 
 		public function __construct(PDO $pdo)
@@ -124,14 +127,28 @@
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie]);
         }
+        /*ajouter la taille et le stock*/
         
-        /*public function afficheTshirt($id) 
+        public function afficherTshirt($id) 
         {
             $sql = "SELECT
-                prod_id
-                prod_nom
-            ";  
-        }*/
+                prod_nom,
+                prod_prix,
+                prod_img_gd,
+                prod_img_pt,
+                prod_desc,
+                prod_fk_createur,
+                prod_fk_matiere,
+                prod_date,
+                prod_fk_categorie
+            FROM produits
+            WHERE prod_id=:a   
+            ";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([':a'=>$id]);
+            $this->afficherTshirt = $stmt->fetchAll(PDO::FETCH_CLASS, "Tshirt");
+			return $this->afficherTshirt;
+        }
         
         /*public function modifierTshirt() 
         {
