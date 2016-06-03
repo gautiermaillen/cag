@@ -99,7 +99,7 @@
 			return $this->listeRech;          
         }
         
-        public function creerTshirt()
+        public function creerTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie)
         {
             $sql = "INSERT INTO 
             produits      
