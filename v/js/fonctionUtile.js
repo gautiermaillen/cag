@@ -13,3 +13,8 @@ function boucleFor($tab,$quoi,$ou,$pourquoi,$id_pourquoi){
 function supprimerEnfant($parent){
 	$($parent).children().remove();
 }
+
+// Création du formulaire d'affichage du t-shirt sélectionné 
+function formulaire($tshirt,$element){
+	$($element).append("<form><fieldset><legend>"+$tshirt["prod_nom"]+"</legend><ul><li>Prix : "+$tshirt["prod_prix"]+"</li><li>Date : "+$tshirt["prod_date"]+"</li><li>Description : "+$tshirt["prod_desc"]+"</li><li>Créateur : "+$tshirt["cre_nom"]+"</li><li>Matière : "+$tshirt["mat_nom"]+"</li><li>Catégorie : "+$tshirt["cat_nom"]+"</li></ul><p><input type='button' class='sauvegarder' value='Sauvegarder'></p><p><input type='button' class='annuler' value='Annuler'></p></fieldset></form>");
+}
