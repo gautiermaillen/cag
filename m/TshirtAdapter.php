@@ -86,7 +86,8 @@
         
         public function listeRech($saisie)
         {
-            $sql = "SELECT
+            $sql = "SELECT 
+                DISTINCT
                 prod_nom,
                 prod_id
                 FROM produits
