@@ -12,7 +12,7 @@ $(function(){
 				// fonction créée dans le fichier JS "fonctionUtile.js"
 				supprimerEnfant("section#tshirt ul.lTshirt");
 				// fonction créée dans le fichier JS "fonctionUtile.js"
-				boucleFor(data["tabNomsTshirt"],"<li/>",$("section#tshirt ul.lTshirt"),"prod_nom");
+				boucleFor(data["tabNomsTshirt"],"li",$("section#tshirt ul.lTshirt"),"prod_nom","prod_id");
 			}
 		);
 	}
