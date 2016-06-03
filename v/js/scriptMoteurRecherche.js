@@ -2,13 +2,15 @@ $(function(){
 	$("header>section>form#moteurDeRecherche input[type=button]").on("click",recherche);
 
 	function recherche(){
-		console.log($(this).prev().val());
+		// console.log($(this).prev().val());
 		$.getJSON(
 			"dispatcher.php",
 			{
 				recherche : $(this).prev().val()
 			},
-			function(data){}
+			function(data){
+				console.log(data);
+			}
 		);
 	}
 });
