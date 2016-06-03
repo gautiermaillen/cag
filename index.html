@@ -3,16 +3,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Boutique de t-shirt</title>
+
+	<!-- STYLE -->
+	<link rel="stylesheet" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" href="v/css/style.css">
 	<link rel="stylesheet" href="v/css/normalize.css">
 	<link rel="stylesheet" href="v/css/header.css">
 	<link rel="stylesheet" href="v/css/liste.css">
-	<script type="text/javascript" src="v/js/jquery-1.12.2.min.js"></script>
+
+	<!-- SCRIPT -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
 	<header>
 		<section>
-			<h1><a href="?operation">Clothes.</a></h1>
+			<h1><a href="?operation=liste">Clothes.</a></h1>
 			<form id="moteurDeRecherche">
 				<input type="text" placeholder="recherche">
 				<input type="button" value="rechercher">
@@ -36,6 +43,7 @@
 		</section>
 	</main>
 
+	<script type="text/javascript" src="v/js/fonctionUtile.js"></script>
 	<script type="text/javascript" src="v/js/scriptJSON.js"></script>
 	<script type="text/javascript" src="v/js/scriptMoteurRecherche.js"></script>
 </body>

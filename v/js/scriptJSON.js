@@ -14,6 +14,7 @@ $(function(){
 		},
 		function(data){
 			// Donnée reçue
+			// fonction créée dans le fichier JS "fonctionUtile.js"
 			boucleFor(data["tabNomsTshirt"],"<li/>",$("section#tshirt ul.lTshirt"),"prod_nom");
 			boucleFor(data["tabCreateurs"],"<option/>",$($selectCreateurs),"cre_nom");
 			boucleFor(data["tabMatieres"],"<option/>",$($selectMatieres),"mat_nom");
@@ -24,17 +25,18 @@ $(function(){
 	// Les options change en fonction de la selection
 	//$("form#recherche select").on("change",gereChangeSelect);
 	// Renvoie les données des options sélectionnés dans l'HTML au DISPATCHER
-	// + nouvelle création des options par rapport au donnée renvoyé par DISPATCHER
+		// nouvelle création des options par rapport au donnée renvoyé par DISPATCHER
 	function gereChangeSelect(){
 		$.getJSON(
 			"dispatcher.php",
 			{
 				operation : "change",
-				createur : $($selectCreateurs+" option:selected").text(),
-				matiere : $($selectMatieres+" option:selected").text(),
+				createur : 	$($selectCreateurs+" option:selected").text(),
+				matiere : 	$($selectMatieres+" option:selected").text(),
 				categorie : $($selectCategories+" option:selected").text()
 			},
 			function(data){
+				// fonction créée dans le fichier JS "fonctionUtile.js"
 				boucleFor(data["tabCreateurs"],"<option/>",$($selectCreateurs),"cre_nom");
 				boucleFor(data["tabMatieres"],"<option/>",$($selectMatieres),"mat_nom");
 				boucleFor(data["tabCategories"],"<option/>",$($selectCategories),"cat_nom");
@@ -51,25 +53,16 @@ $(function(){
 			{
 				// Je veux que DISPATCHER me donne une info spécifique
 				operation : "tri",
-				createur : $($selectCreateurs+" option:selected").text(),
-				matiere : $($selectMatieres+" option:selected").text(),
+				createur : 	$($selectCreateurs+" option:selected").text(),
+				matiere : 	$($selectMatieres+" option:selected").text(),
 				categorie : $($selectCategories+" option:selected").text()
 
 			},
 			function(data){
-				$("section#tshirt ul.lTshirt").children().remove();
+				// fonction créée dans le fichier JS "fonctionUtile.js"
+				supprimerEnfant("section#tshirt ul.lTshirt");
 				boucleFor(data["tabNomsTshirt"],"<li/>",$("section#tshirt ul.lTshirt"),"prod_nom");
-				//console.log(data);
 			}
 		);
-	}
-
-
-	function boucleFor($tab,$quoi,$ou,$pourquoi){
-		// console.log($tab);
-		// console.log($tab.length);
-		for (var i = 0; i < $tab.length; i++){
-			$($quoi).text($tab[i][$pourquoi]).appendTo($ou);
-		}
 	}
 });
