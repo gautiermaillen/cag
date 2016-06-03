@@ -94,7 +94,7 @@
                 LIKE :a";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":a"=>"%".$saisie."%"]);
-            $this->listeRech = $stmt->fetchAll(PDO::FETCH_OBJ, "Tshirt");
+            $this->listeRech = $stmt->fetchAll(PDO::FETCH_CLASS, "Tshirt");
 			return $this->listeRech;          
         }
 	}
