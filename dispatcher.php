@@ -6,7 +6,8 @@
 
 	$operation_permise=[
 		"liste" => "index.html",
-		"tri" => "index.html"
+		"tri" => "index.html",
+		"recherche" => "index.html"
 	];
 	
 	//Récupérer l'opération 
@@ -31,6 +32,11 @@
 		case "tri":
 			$TabTriTshirt = $Tc->listeTriee($_GET['createur'], $_GET['matiere'], $_GET['categorie']);
 			$tabTshirt = ["tabNomsTshirt"=>$TabTriTshirt];
+			break;
+
+		case "recherche":
+			$TabRechTshirt = $Tc->listeRech($_GET['recherche']);
+			$tabTshirt = ["tabNomsTshirt"=>$TabRechTshirt];
 			break;
 	}
 

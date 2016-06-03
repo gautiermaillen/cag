@@ -54,4 +54,12 @@
 
 			return $lt;
 		}
+
+		public function listeRech($saisie)
+		{
+			$Ta = new TshirtAdapter($this->Connec);
+			$lr = $Ta->listeRech($saisie);
+
+			return $lr;
+		}
 	}
