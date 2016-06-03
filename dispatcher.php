@@ -12,7 +12,7 @@
 	$op = (isset($_GET['operation']))?$_GET['operation']:1;
 	if(!isset($operation_permise[$op]))
 	{
-		$op = "tri"; // par défaut
+		$op = "liste"; // par défaut
 	}
 
 	$Tc = new TshirtControler();
@@ -34,7 +34,8 @@
 			break;
 	}
 
-	var_dump($tabTshirt);
+	//var_dump($tabTshirt);
+	echo json_encode($tabTshirt);
 	
 
 
