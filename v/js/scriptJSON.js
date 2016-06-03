@@ -1,6 +1,11 @@
 // JQUERY
 $(function(){
-	// Création options des selects
+	// Variable globale
+	$selectCreateurs = "form#recherche select[name=createurs]";
+	$selectMatieres = "form#recherche select[name=matieres]";
+	$selectCategories = "form#recherche select[name=categories]";
+
+	// Création options des selects au chargement de la page
 	$.getJSON(
 		"dispatcher.php",
 		{
@@ -9,16 +14,15 @@ $(function(){
 		},
 		function(data){
 			// Donnée reçue
-			boucleFor(data["tabNomsTshirt"],"<li/>",$("ul.lTshirt"),"nom_produit");
-
-			boucleFor(data["tabCreateurs"],"<option/>",$("form#recherche select[name=createurs]"),"cre_nom");
-			boucleFor(data["tabMatieres"],"<option/>",$("form#recherche select[name=matieres]"),"mat_nom");
-			boucleFor(data["tabCategories"],"<option/>",$("form#recherche select[name=categories]"),"cat_nom");
+			boucleFor(data["tabNomsTshirt"],"<li/>",$("section#tshirt ul.lTshirt"),"prod_nom");
+			boucleFor(data["tabCreateurs"],"<option/>",$($selectCreateurs),"cre_nom");
+			boucleFor(data["tabMatieres"],"<option/>",$($selectMatieres),"mat_nom");
+			boucleFor(data["tabCategories"],"<option/>",$($selectCategories),"cat_nom");
 		}
 	);
 
 	// Les options change en fonction de la selection
-	$("form#recherche select").on("change",gereChangeSelect);
+	//$("form#recherche select").on("change",gereChangeSelect);
 	// Renvoie les données des options sélectionnés dans l'HTML au DISPATCHER
 	// + nouvelle création des options par rapport au donnée renvoyé par DISPATCHER
 	function gereChangeSelect(){
@@ -26,12 +30,14 @@ $(function(){
 			"dispatcher.php",
 			{
 				operation : "change",
-				createur : $("form#recherche select[name=createurs] option:selected").text(),
-				matiere : $("form#recherche select[name=matieres] option:selected").text(),
-				categories : $("form#recherche select[name=categories] option:selected").text()
+				createur : $($selectCreateurs+" option:selected").text(),
+				matiere : $($selectMatieres+" option:selected").text(),
+				categorie : $($selectCategories+" option:selected").text()
 			},
 			function(data){
-				//console.log(data);
+				boucleFor(data["tabCreateurs"],"<option/>",$($selectCreateurs),"cre_nom");
+				boucleFor(data["tabMatieres"],"<option/>",$($selectMatieres),"mat_nom");
+				boucleFor(data["tabCategories"],"<option/>",$($selectCategories),"cat_nom");
 			}
 		);
 	}
@@ -45,20 +51,23 @@ $(function(){
 			{
 				// Je veux que DISPATCHER me donne une info spécifique
 				operation : "tri",
-				createur : $("form#recherche select[name=createurs] option:selected").text(),
-				matiere : $("form#recherche select[name=matieres] option:selected").text(),
-				categories : $("form#recherche select[name=categories] option:selected").text()
+				createur : $($selectCreateurs+" option:selected").text(),
+				matiere : $($selectMatieres+" option:selected").text(),
+				categorie : $($selectCategories+" option:selected").text()
 
 			},
 			function(data){
+				$("section#tshirt ul.lTshirt").children().remove();
+				boucleFor(data["tabNomsTshirt"],"<li/>",$("section#tshirt ul.lTshirt"),"prod_nom");
 				//console.log(data);
-				boucleFor(data,"<li/>",$("section#tshirt ul.lTshirt"),"nom_produit");
 			}
 		);
 	}
 
 
 	function boucleFor($tab,$quoi,$ou,$pourquoi){
+		console.log($tab);
+		console.log($tab.length);
 		for (var i = 0; i < $tab.length; i++) {
 			$($quoi).text($tab[i][$pourquoi]).appendTo($ou);
 		}
