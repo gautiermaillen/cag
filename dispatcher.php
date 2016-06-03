@@ -8,7 +8,10 @@
 		"liste" => "index.html",
 		"tri" => "index.html",
 		"recherche" => "index.html",
-		"ajout" => "index.html"
+		"ajout" => "index.html",
+		"affichage" => "index.html",
+		"update" => "index.html",
+		"delete" => "index.html"
 	];
 	
 	//Récupérer l'opération 
@@ -41,7 +44,19 @@
 			break;
 
 		case "ajout":
-			$tshirt = $Tc->creerTshirt($_GET['nom'], $_GET['prix'], $_GET['img_gd'], $_GET['img_pt'], $_GET['desc'], $_GET['createur'], $_GET['matiere'], $_GET['date'], $_GET['categorie']);
+			$Tc->creerTshirt($_GET['nom'], $_GET['prix'], $_GET['img_gd'], $_GET['img_pt'], $_GET['desc'], $_GET['createur'], $_GET['matiere'], $_GET['date'], $_GET['categorie']);
+			break;
+
+		case "affichage":
+			$Tc->afficherTshirt($_GET['id']);
+			break;
+
+		case "update":
+			$Tc->modifierTshirt($_GET['nom'], $_GET['prix'], $_GET['img_gd'], $_GET['img_pt'], $_GET['desc'], $_GET['createur'], $_GET['matiere'], $_GET['date'], $_GET['categorie']);
+			break;
+
+		case "delete":
+			$Tc->supprimerTshirt($_GET['id']);
 			break;
 	}
 
@@ -50,6 +65,5 @@
 		echo json_encode($tabTshirt);
 	}
 	
-
 
 ?>

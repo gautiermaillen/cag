@@ -70,4 +70,31 @@
 
 			return $ct;
 		}
+
+		// public function afficherTshirt($id)
+		// {
+		// 	$Ta = new TshirtAdapter($this->Connec);
+		// 	$at = $Ta->afficherTshirt($id)
+
+		// 	return $at;
+		// }
+
+		// public function modifierTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie)
+		// {
+		// 	$Ta = new TshirtAdapter($this->Connec);
+		// 	$mt = $Ta->modifTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie);
+
+		// 	return $mt;
+		// }
+
+		// public function supprimerTshirt($id)
+		// {
+		// 	$Ta = new TshirtAdapter($this->Connec);
+		// 	$st = $Ta->supprimerTshirt($id)
+
+		// 	return $st;
+		// }
 	}
+
+
+

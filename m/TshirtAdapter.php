@@ -150,7 +150,28 @@
 			return $this->afficherTshirt;
         }
         
-        /*public function modifierTshirt() 
+        /*public function modifierTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$id)
+        {
+            $sql = "UPDATE
+                produits
+            SET
+                prod_nom=:a,
+                prod_prix=:b,
+                prod_img_gd=:c,
+                prod_img_pt=:d,
+                prod_desc=:e,
+                prod_fk_createur=:f,
+                prod_fk_matiere=:g,
+                prod_date=:h,
+                prod_fk_categorie=:i
+            WHERE
+                prod_id=:j
+            ";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie,":j"=>$id]);
+        }*/
+        
+        /*public function supprimerTshirt() 
         {
             $sql = 
         }*/
