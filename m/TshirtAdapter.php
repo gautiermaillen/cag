@@ -117,8 +117,8 @@
                 (NULL,:a,:b,:c,:d,:e,:f,:g,:h,:i)";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie]);
-            $stmt->creerTshirt = $stmt->setFetchMode(PDO::FETCH_OBJ);
+           /* $stmt->creerTshirt = $stmt->setFetchMode(PDO::FETCH_OBJ);
             $data = $stmt->fetch();
-			return $data; 
+			return $data; */
         }
 	}
