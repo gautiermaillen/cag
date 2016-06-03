@@ -34,7 +34,9 @@
 
         public function listeCreateurs()
         {
-            $sql = "SELECT cre_nom
+            $sql = "SELECT 
+                    cre_id,
+                    cre_nom 
                 FROM createurs";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
@@ -44,7 +46,9 @@
         
         public function listeMatieres()
         {
-            $sql = "SELECT mat_nom
+            $sql = "SELECT 
+                    mat_id,
+                    mat_nom
                 FROM matieres";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
@@ -54,7 +58,9 @@
 
         public function listeCategories()
         {
-            $sql = "SELECT cat_nom
+            $sql = "SELECT
+                    cat_id,
+                    cat_nom
                 FROM categories";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
@@ -121,4 +127,16 @@
             $data = $stmt->fetch();
 			return $data; */
         }
+        
+        /*public function afficheTshirt($id) 
+        {
+            $sql = "SELECT
+                prod_nom
+            ";  
+        }*/
+        
+        /*public function modifierTshirt() 
+        {
+            $sql = 
+        }*/
 	}
