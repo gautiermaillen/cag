@@ -45,7 +45,11 @@
 			break;
 	}
 
-	echo json_encode($tabTshirt);
+	if(isset($tabTshirt))
+	{
+		echo json_encode($tabTshirt);
+	}
+	
 
 
 ?>
