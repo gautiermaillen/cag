@@ -9,6 +9,7 @@
 		private $listeMatieres=[];
 		private $listeCategories=[];
 		private $listeTriee=[];
+        private $listeRech=[];
 		private $pdo;
 
 		public function __construct(PDO $pdo)
