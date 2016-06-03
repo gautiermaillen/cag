@@ -6,8 +6,9 @@
 		private function __construct()
 		{
 			$utilisateur ="admin";
-			$motdepasse="pwd_admin";
-			$serveur = "mysql:host=localhost;dbname=tshirt";
+            $motdepasse="pwd_admin";
+            $serveur =  "mysql:host=localhost;dbname=tshirt";
+
 			$this->pdo = new PDO ($serveur, $utilisateur, $motdepasse); // DSN (quel driver utilisé ? Livre p.478)			self::$pdo = new PDO ($serveur,$utilisateur,$motdepasse);
 		 	$this->pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$requete="SET NAMES utf8";
