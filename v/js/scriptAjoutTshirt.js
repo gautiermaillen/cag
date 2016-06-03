@@ -1,10 +1,15 @@
 $(function(){
 	$("a.ajouterLTshirt").on("click",afficheFormulaire);
-	$("form.ajouterLTshirt input[type=button]").on("click",envoieInfoAjout);
+	$("form.ajouterLTshirt input#ajouter").on("click",envoieInfoAjout);
+	$("form.ajouterLTshirt input#annuler").on("click",annulerAjout);
 
 	function afficheFormulaire(){
 		$classFormulaire = $(this).attr("class");
 		$("form."+$classFormulaire).css({display:"block"});
+	}
+
+	function annulerAjout(){
+		$("form.ajouterLTshirt").css({display:"none"});
 	}
 
 	function envoieInfoAjout(){
