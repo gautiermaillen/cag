@@ -7,7 +7,8 @@
 	$operation_permise=[
 		"liste" => "index.html",
 		"tri" => "index.html",
-		"recherche" => "index.html"
+		"recherche" => "index.html",
+		"ajout" => "index.html"
 	];
 	
 	//Récupérer l'opération 
@@ -37,6 +38,10 @@
 		case "recherche":
 			$TabRechTshirt = $Tc->listeRech($_GET['recherche']);
 			$tabTshirt = ["tabNomsTshirt"=>$TabRechTshirt];
+			break;
+
+		case "ajout":
+			$tshirt = $Tc->creerTshirt($_GET['nom'], $_GET['prix'], $_GET['img_gd'], $_GET['img_pt'], $_GET['desc'], $_GET['createur'], $_GET['matiere'], $_GET['date'], $_GET['categorie']);
 			break;
 	}
 

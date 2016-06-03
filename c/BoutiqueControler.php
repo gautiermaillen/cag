@@ -62,4 +62,12 @@
 
 			return $lr;
 		}
+
+		public function creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie)
+		{
+			$Ta = new TshirtAdapter($this->Connec);
+			$ct = $Ta->creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie);
+
+			return $ct;
+		}
 	}
