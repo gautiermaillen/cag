@@ -64,18 +64,19 @@
 		public function listeTriee($cre_nom, $mat_nom, $cat_nom)
 		{
             $sql = "SELECT
+            		DISTINCT
                     prod_id,
                     prod_nom,	
                     cre_nom,
                     cat_nom,
-                    mat_nom,
+                    mat_nom
 				FROM produits
 				JOIN createurs ON prod_fk_createur = cre_id
 				JOIN matieres ON mat_id = prod_fk_matiere
 				JOIN categories ON cat_id = prod_fk_categorie
 				JOIN exemplaires ON exem_fk_tee = prod_id
 				JOIN tailles ON exem_fk_tail = tail_id
-                WHERE cre_nom=:a AND cat_nom=:b AND mat_nom=:c";
+                WHERE cre_nom=:a AND mat_nom=:b AND cat_nom=:c";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([':a'=>$cre_nom,':b'=>$mat_nom,':c'=>$cat_nom]);
             $this->listeTriee = $stmt->fetchAll(PDO::FETCH_CLASS, "Tshirt");

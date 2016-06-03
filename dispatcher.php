@@ -5,7 +5,8 @@
 	require_once("./c/BoutiqueControler.php");
 
 	$operation_permise=[
-		"liste"
+		"liste" => "index.html",
+		"tri" => "index.html"
 	];
 	
 	//Récupérer l'opération 
@@ -25,18 +26,15 @@
 			$tabMatieres = $Tc->listeMatieres();
 			$tabCategories = $Tc->listeCategories();
 			$tabTshirt=["tabNomsTshirt"=>$tabNomsTshirt,"tabCreateurs"=>$tabCreateurs,"tabMatieres"=>$tabMatieres,"tabCategories"=>$tabCategories];
-			// echo json_encode($tabTshirt);
 			break;
 
 		case "tri":
 			$TabTriTshirt = $Tc->listeTriee($_GET['createur'], $_GET['matiere'], $_GET['categorie']);
-			echo json_encode($tabTriTshirt);
+			$tabTshirt = ["tabNomsTshirt"=>$TabTriTshirt];
 			break;
 	}
 
-	//var_dump($tabTshirt);
 	echo json_encode($tabTshirt);
-	
 
 
 ?>
