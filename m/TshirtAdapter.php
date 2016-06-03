@@ -19,8 +19,8 @@
 		public function liste()
 		{
 			$sql = "SELECT
-					prod_id as id_produit,
-					prod_nom as nom_produit
+					prod_id,
+					prod_nom
 
 					FROM produits;";
 
