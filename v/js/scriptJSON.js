@@ -19,6 +19,9 @@ $(function(){
 			boucleFor(data["tabCreateurs"],"<option/>",$($selectCreateurs),"cre_nom");
 			boucleFor(data["tabMatieres"],"<option/>",$($selectMatieres),"mat_nom");
 			boucleFor(data["tabCategories"],"<option/>",$($selectCategories),"cat_nom");
+			boucleFor(data["tabCreateurs"],"<option/>",$("form.ajouterLTshirt select[name=createur]"),"cre_nom");
+			boucleFor(data["tabMatieres"],"<option/>",$("form.ajouterLTshirt select[name=matiere]"),"mat_nom");
+			boucleFor(data["tabCategories"],"<option/>",$("form.ajouterLTshirt select[name=categorie]"),"cat_nom");
 		}
 	);
 

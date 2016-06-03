@@ -11,6 +11,11 @@
 	<link rel="stylesheet" href="v/css/normalize.css">
 	<link rel="stylesheet" href="v/css/header.css">
 	<link rel="stylesheet" href="v/css/liste.css">
+	<style>
+		form.ajouterLTshirt{
+			display: none;
+		}
+	</style>
 
 	<!-- SCRIPT -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -37,6 +42,46 @@
 		</form>
 		<section id="tshirt">
 			<div class="container">
+				<a href="#" class="ajouterLTshirt">Ajouter T-shirt</a>
+				<form class="ajouterLTshirt" method="get">
+					<fieldset>
+						<legend>Ajouter un Tshirt</legend>
+						<p>
+							<label>Nom : </label>
+							<input type="text" placeholder="nom" name="nom">
+						</p>
+						<p>
+							<label>Prix : </label>
+							<input type="text" placeholder="prix" name="prix">
+						</p>
+						<p>
+							<label>Date : </label>
+							<input type="text" placeholder="date" name="date">
+						</p>
+						<p>
+							<label>Grande image : </label>
+							<input type="file" name="img_gd">
+						</p>
+						<p>
+							<label>Petite image : </label>
+							<input type="file" name="img_pt">
+						</p>
+						<p class="lesSelect">
+							<label for="">Créateurs</label>
+							<select name="createur"></select>
+						</p>
+						<p class="lesSelect">
+							<label for="">Matières</label>
+							<select name="matiere"></select>
+						</p>
+						<p class="lesSelect">
+							<label for="">Catégories</label>
+							<select name="categorie"></select>
+						</p>
+
+						<input type="button" value="Ajouter T-shirt">
+					</fieldset>
+				</form>
 				<ul class="lTshirt">
 				</ul>
 			</div>
@@ -46,5 +91,6 @@
 	<script type="text/javascript" src="v/js/fonctionUtile.js"></script>
 	<script type="text/javascript" src="v/js/scriptJSON.js"></script>
 	<script type="text/javascript" src="v/js/scriptMoteurRecherche.js"></script>
+	<script type="text/javascript" src="v/js/scriptAjoutTshirt.js"></script>
 </body>
 </html>
