@@ -128,6 +128,7 @@
         /*public function afficheTshirt($id) 
         {
             $sql = "SELECT
+                prod_id
                 prod_nom
             ";  
         }*/
