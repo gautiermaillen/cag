@@ -66,8 +66,8 @@ $(function(){
 
 
 	function boucleFor($tab,$quoi,$ou,$pourquoi){
-		console.log($tab);
-		console.log($tab.length);
+		// console.log($tab);
+		// console.log($tab.length);
 		for (var i = 0; i < $tab.length; i++){
 			$($quoi).text($tab[i][$pourquoi]).appendTo($ou);
 		}
