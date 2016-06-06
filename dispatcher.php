@@ -10,8 +10,8 @@
 		"recherche" => "index.html",
 		"ajout" => "index.html",
 		"affichage" => "index.html",
-		"update" => "index.html",
-		"delete" => "index.html"
+		"modification" => "index.html",
+		"suppression" => "index.html"
 	];
 	
 	//Récupérer l'opération 
@@ -51,11 +51,11 @@
 			$tabTshirt = $Tc->afficherTshirt($_GET['id']);
 			break;
 
-		case "update":
+		case "modification":
 			$Tc->modifierTshirt($_GET['nom'], $_GET['prix'], $_GET['img_gd'], $_GET['img_pt'], $_GET['desc'], $_GET['createur'], $_GET['matiere'], $_GET['date'], $_GET['categorie']);
 			break;
 
-		case "delete":
+		case "suppression":
 			$Tc->supprimerTshirt($_GET['id']);
 			break;
 	}
