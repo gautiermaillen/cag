@@ -24,10 +24,7 @@
 			$sql = "SELECT
 					prod_id,
 					prod_nom
-
 					FROM produits;";
-
-			// préparation de la requête : 
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->execute();
 			$this->liste = $stmt->fetchAll(PDO::FETCH_CLASS, "Tshirt");
@@ -173,10 +170,12 @@
             $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie,":j"=>$id]);
         }*/
         
-        /*public function supprimerTshirt() 
+        public function supprimerTshirt($id) 
         {
-            $sql = DELETE 
+            $sql = "DELETE 
             FROM produits 
-            WHERE nom=:a
-        }*/
+            WHERE prod_id=:a";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([":a"=>$id]);
+        }
 	}
