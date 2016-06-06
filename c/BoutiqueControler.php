@@ -90,7 +90,7 @@
 		public function supprimerTshirt($id)
 		{
 			$Ta = new TshirtAdapter($this->Connec);
-			$st = $Ta->supprimerTshirt($id)
+			$st = $Ta->supprimerTshirt($id);
 
 			return $st;
 		}
