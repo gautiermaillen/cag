@@ -149,7 +149,7 @@
 			return $this->afficherTshirt;
         }
         
-        /*public function modifierTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$id)
+        public function modifierTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$id)
         {
             $sql = "UPDATE
                 produits
@@ -168,7 +168,7 @@
             ";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie,":j"=>$id]);
-        }*/
+        }
         
         public function supprimerTshirt($id) 
         {
