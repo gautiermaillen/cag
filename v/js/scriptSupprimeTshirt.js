@@ -8,9 +8,6 @@ $(function(){
 				{
 					operation : "suppression",
 					id : 		$(this).parent().parent().attr("data-id")
-				},
-				function(){
-					alert('T-shirt supprimer');
 				}
 			);
 		}

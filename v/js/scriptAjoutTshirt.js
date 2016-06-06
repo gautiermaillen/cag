@@ -59,10 +59,6 @@ $(function(){
 					createur: 	$ajout_createur,
 					matiere : 	$ajout_matiere,
 					categorie : $ajout_categorie
-				},
-				function(){
-					alert('T-shirt Ajouté');
-					annulerAjout();
 				}
 			);
 		}
