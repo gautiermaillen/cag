@@ -11,8 +11,7 @@
 		private $listeTriee=[];
         private $listeRech=[];
         private $ajouterTshirt=[];
-        /*private $modifierTshirt=[];
-        private $supprimerTshirt=[];*/
+        private $afficherTshirt=[];
 		private $pdo;
 
 		public function __construct(PDO $pdo)
@@ -173,6 +172,8 @@
         
         /*public function supprimerTshirt() 
         {
-            $sql = 
+            $sql = DELETE 
+            FROM produits 
+            WHERE nom=:a
         }*/
 	}
