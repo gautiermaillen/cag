@@ -8,8 +8,8 @@ $(function(){
 		$.getJSON(
 			"dispatcher.php",
 			{
-				operation : 	"affichage",
-				id : 			$(this).attr("data-id")
+				operation : "affichage",
+				id : 		$(this).attr("data-id")
 			},
 			function(data){
 				formulaire(data,this);
