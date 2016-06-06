@@ -29,6 +29,7 @@ $(function(){
 		$tabChampsObligatoires = [$ajout_nom, $ajout_prix, $ajout_date, $ajout_img_gd, $ajout_img_pt];
 		if($ajout_nom.val() == "" || $ajout_prix.val() == "" || $ajout_date.val() == "" || $ajout_img_gd.val() == "" || $ajout_img_pt.val() == "")
 		{
+			$("input+span").remove();
 			for (var i = 0; i <= $tabChampsObligatoires.length ; i++)
 			{
 				if($tabChampsObligatoires[i].val() == "")
@@ -58,8 +59,7 @@ $(function(){
 					createur: 	$ajout_createur,
 					matiere : 	$ajout_matiere,
 					categorie : $ajout_categorie
-				},
-				function(data){}
+				}
 			);
 		}
 	}
