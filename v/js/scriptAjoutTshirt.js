@@ -32,7 +32,7 @@ $(function(){
 			$("input+span.error").remove();
 			for (var i = 0; i <= $tabChampsObligatoires.length ; i++)
 			{
-				if($tabChampsObligatoires[i].val() == "")
+				if($tabChampsObligatoires[i].text() == "")
 				{
 					$("<span>").text(" Ce champ est obligatoire")
 		            .attr("class", "error")
