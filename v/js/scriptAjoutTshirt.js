@@ -49,12 +49,12 @@ $(function(){
 				"dispatcher.php",
 				{
 					operation : "ajout",
-					nom : 		$ajout_nom,
-					prix : 		$ajout_prix,
-					date : 		$ajout_date,
-					desc : 		$ajout_desc,
-					img_gd : 	$ajout_img_gd,
-					img_pt : 	$ajout_img_pt,
+					nom : 		$ajout_nom.val(),
+					prix : 		$ajout_prix.val(),
+					date : 		$ajout_date.val(),
+					desc : 		$ajout_desc.val(),
+					img_gd : 	$ajout_img_gd.val(),
+					img_pt : 	$ajout_img_pt.val(),
 					createur: 	$ajout_createur,
 					matiere : 	$ajout_matiere,
 					categorie : $ajout_categorie
