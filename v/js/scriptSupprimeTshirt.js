@@ -2,16 +2,17 @@ $(function(){
 	$("ul.lTshirt").on("click","li[name=supprimer]",supprimeTshirt);
 
 	function supprimeTshirt(){
-		// $(this).parent().parent().remove();
-		$.getJSON(
-			"dispatcher.php",
-			{
-				operation : "suppression",
-				id : 		$(this).parent().parent().attr("data-id")
-			},
-			function(){
-				alert('Supprimer');
-			}
-		);
+		if (confirm("Souhaitez-vous supprimer ce t-shirt : '"+$(this).parent().parent().text()+"' ?")){
+			$.getJSON(
+				"dispatcher.php",
+				{
+					operation : "suppression",
+					id : 		$(this).parent().parent().attr("data-id")
+				},
+				function(){
+					alert('T-shirt supprimer');
+				}
+			);
+		}
 	}
 });
