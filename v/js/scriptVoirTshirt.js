@@ -13,8 +13,8 @@ $(function(){
 				id : 		$(this).attr("data-id")
 			},
 			function(data){
-				console.log(data);
-				//formulaire(data,$leLI);
+				// console.log(data);
+				formulaire(data,$leLI);
 			}
 		);
 	}
