@@ -42,6 +42,7 @@ body
 	{
 		li
 		{
+			padding: 3px 0 2px;
 			margin: 6px 4px;
 			border-radius: 2px;
 			background: rgba(0,0,0,0.04);
@@ -67,13 +68,35 @@ body
 					opacity: 0.6;
 				}
 			}
+
+			ul.options
+			{
+				margin-left: 10px;
+				width: 7%;
+				float: left;
+
+				li
+				{
+					background-color: none;
+					background: rgba(0,0,0,0);
+					position: relative;
+					top: -4px;
+				}
+
+				li:hover
+				{
+					color: rgba(30,100,160,1);;
+				}
+			}
 		}
+
 	}
 
 	ul.lTshirt li:hover
 	{
-		background: rgba(0,0,0,0.08);
+		background: rgba(40,150,200,0.3);
 	}
+
 }
 
 

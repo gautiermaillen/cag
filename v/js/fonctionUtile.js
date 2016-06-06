@@ -9,6 +9,7 @@ function boucleFor($tab,$quoi,$ou,$pourquoi,$id_pourquoi){
 	}
 }
 
+
 // Supprime les enfants d'une balise HTML passé en paramètre
 function supprimerEnfant($parent){
 	$($parent).children().remove();
