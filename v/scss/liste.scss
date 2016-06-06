@@ -48,24 +48,18 @@ body
 			background: rgba(0,0,0,0.04);
 			transition: 0.3s;
 
-			a
+			form
 			{
-				font-size: 0.75em;
-				text-transform: uppercase;
-				text-align: center;
-				letter-spacing: 0.1em;
-				color: black;
+				background: white;
 
-				display: block;
-
-				padding: 5px 10px 0;
-				box-shadow: 0 0 2px solid rgba(0,0,0,0.04);
-
-				p
+				li
 				{
-					font-size: 0.9em;
-					font-style: italic;
-					opacity: 0.6;
+					background: white;
+				}
+
+				li:hover
+				{
+					background: white;
 				}
 			}
 
@@ -85,7 +79,7 @@ body
 
 				li:hover
 				{
-					color: rgba(30,100,160,1);;
+					color: rgba(30,100,160,1);
 				}
 			}
 		}
