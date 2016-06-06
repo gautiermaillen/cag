@@ -170,11 +170,12 @@
             $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie,":j"=>$id]);
         }*/
         
-        /*public function supprimerTshirt($id) 
+        public function supprimerTshirt($id) 
         {
             $sql = "DELETE 
             FROM produits 
             WHERE prod_id=:a";
-            $stmt
-        }*/
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([":a"=>$id]);
+        }
 	}
