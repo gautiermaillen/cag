@@ -17,9 +17,14 @@ function supprimerEnfant($parent){
 
 // Création du formulaire d'affichage du t-shirt sélectionné 
 function formulaire($tshirt,$element){
+<<<<<<< HEAD
 	$($element).append("<form><fieldset><legend>"+$tshirt["prod_nom"]+"</legend><ul><li>Prix : "+$tshirt["prod_prix"]+"</li><li>Date : "+$tshirt["prod_date"]+"</li><li>Description : "+$tshirt["prod_desc"]+"</li><li>Créateur : "+$tshirt["cre_nom"]+"</li><li>Matière : "+$tshirt["mat_nom"]+"</li><li>Catégorie : "+$tshirt["cat_nom"]+"</li></ul></fieldset></form>");
 }
 
 $(function() {
 	$( "#datepicker" ).datepicker();
 });
+=======
+	$element.append("<form><fieldset><legend>"+$tshirt["prod_nom"]+"</legend><ul><li>Prix : "+$tshirt["prod_prix"]+"</li><li>Date : "+$tshirt["prod_date"]+"</li><li>Description : "+$tshirt["prod_desc"]+"</li><li>Créateur : "+$tshirt["cre_nom"]+"</li><li>Matière : "+$tshirt["mat_nom"]+"</li><li>Catégorie : "+$tshirt["cat_nom"]+"</li></ul></fieldset></form>");
+}
+>>>>>>> origin/master

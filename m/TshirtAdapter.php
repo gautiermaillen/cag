@@ -107,7 +107,7 @@
         public function creerTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie)
         {
             $sql = "INSERT INTO 
-            produits      
+            produits
                 (prod_id,
                 prod_nom,
                 prod_prix,

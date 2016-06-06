@@ -1,14 +1,14 @@
 $(function(){
-	$("section#tshirt ul.lTshirt").on("click",">li",afficheDetail);
+	$("section#tshirt ul.lTshirt").on("click","li[name=afficher]",afficheDetail);
 
 	function afficheDetail(ev){
-		$leLI = this;
-		if (!$($leLI).has("form").length){
+		$leLI = $(this).parent().parent();
+		if (!$leLI.has("form").length){
 			$.getJSON(
 				"dispatcher.php",
 				{
 					operation : "affichage",
-					id : 		$(this).attr("data-id")
+					id : 		$leLI.attr("data-id")
 				},
 				function(data){
 					// Voir dans fonctionUtile.js
