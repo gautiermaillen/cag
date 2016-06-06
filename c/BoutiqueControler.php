@@ -87,13 +87,13 @@
 		// 	return $mt;
 		// }
 
-		// public function supprimerTshirt($id)
-		// {
-		// 	$Ta = new TshirtAdapter($this->Connec);
-		// 	$st = $Ta->supprimerTshirt($id)
+		public function supprimerTshirt($id)
+		{
+			$Ta = new TshirtAdapter($this->Connec);
+			$st = $Ta->supprimerTshirt($id)
 
-		// 	return $st;
-		// }
+			return $st;
+		}
 	}
 
 
