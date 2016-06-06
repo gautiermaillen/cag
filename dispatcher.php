@@ -18,7 +18,7 @@
 	$op = (isset($_GET['operation']))?$_GET['operation']:1;
 	if(!isset($operation_permise[$op]))
 	{
-		$op = "liste"; // par défaut
+		$op = "affichage"; // par défaut
 	}
 
 	$Tc = new TshirtControler();
@@ -48,7 +48,7 @@
 			break;
 
 		case "affichage":
-			$Tc->afficherTshirt($_GET['id']);
+			$tabTshirt = $Tc->afficherTshirt($_GET['id']);
 			break;
 
 		case "update":
