@@ -20,5 +20,9 @@ function formulaire($tshirt,$element){
 }
 
 $(function() {
-	$( "#datepicker" ).datepicker();
+	$("#datepicker").datepicker(
+		{
+			dateFormat: 'yy-mm-dd'
+		});
+
 });
