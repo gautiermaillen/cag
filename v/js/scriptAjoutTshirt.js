@@ -19,9 +19,9 @@ $(function(){
 		$ajout_desc = $("form.ajouterLTshirt textarea[name=desc]");
 		$ajout_img_gd = $("form.ajouterLTshirt input[name=img_gd]");
 		$ajout_img_pt = $("form.ajouterLTshirt input[name=img_pt]");
-		$ajout_createur = $("form.ajouterLTshirt select[name=createur] option:selected").text();
-		$ajout_matiere = $("form.ajouterLTshirt select[name=matiere] option:selected").text();
-		$ajout_categorie = $("form.ajouterLTshirt select[name=categorie] option:selected").text();
+		$ajout_createur = $("form.ajouterLTshirt select[name=createur] option:selected").attr("data-id");
+		$ajout_matiere = $("form.ajouterLTshirt select[name=matiere] option:selected").attr("data-id");
+		$ajout_categorie = $("form.ajouterLTshirt select[name=categorie] option:selected").attr("data-id");
 		
 
 		// MESSAGES D'ERREURS
