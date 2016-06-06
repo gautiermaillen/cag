@@ -136,11 +136,14 @@
                 prod_img_gd,
                 prod_img_pt,
                 prod_desc,
-                prod_fk_createur,
-                prod_fk_matiere,
                 prod_date,
-                prod_fk_categorie
+                cre_nom,
+                cat_nom,
+                mat_nom
             FROM produits
+            JOIN createurs ON prod_fk_createur = cre_id
+            JOIN matieres ON mat_id = prod_fk_matiere
+            JOIN categories ON cat_id = prod_fk_categorie 
             WHERE prod_id=:a   
             ";
             $stmt = $this->pdo->prepare($sql);
