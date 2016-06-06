@@ -71,13 +71,13 @@
 			return $ct;
 		}
 
-		// public function afficherTshirt($id)
-		// {
-		// 	$Ta = new TshirtAdapter($this->Connec);
-		// 	$at = $Ta->afficherTshirt($id)
+		public function afficherTshirt($id)
+		{
+			$Ta = new TshirtAdapter($this->Connec);
+			$at = $Ta->afficherTshirt($id);
 
-		// 	return $at;
-		// }
+			return $at;
+		}
 
 		// public function modifierTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie)
 		// {
