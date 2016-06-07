@@ -13,6 +13,7 @@ $(function(){
 	}
 
 	function envoieInfoAjout(){
+		// Récupération des informations du formulaire d'ajout d'un T-shirt
 		$ajout_nom = $("form.ajouterLTshirt input[name=nom]");
 		$ajout_prix = $("form.ajouterLTshirt input[name=prix]");
 		$ajout_date = $("form.ajouterLTshirt input[name=date]");
@@ -54,7 +55,9 @@ $(function(){
 			for (var i = 0; i < $("form.ajouterLTshirt section#stock p").length; i++){
 				$tabTailles[$tabTailles.length] = 
 					[
+						// Valeur = Stock
 						$("form.ajouterLTshirt section#stock p:nth-child("+(i+2)+") input").val(),
+						// Attribute = Taille
 						$("form.ajouterLTshirt section#stock p:nth-child("+(i+2)+") input").attr("name")
 					];
 			}
