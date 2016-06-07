@@ -5,26 +5,36 @@
 	require_once("./c/BoutiqueControler.php");
 
 	$operation_permise=[
+		"inscription" => "connexion.html"
+		"connexion" => "index.html",
 		"liste" => "index.html",
 		"tri" => "index.html",
 		"recherche" => "index.html",
 		"ajout" => "index.html",
 		"affichage" => "index.html",
 		"modification" => "index.html",
-		"suppression" => "index.html"
+		"suppression" => "index.html",
 	];
 	
 	//Récupérer l'opération 
 	$op = (isset($_GET['operation']))?$_GET['operation']:1;
 	if(!isset($operation_permise[$op]))
 	{
-		$op = "affichage"; // par défaut
+		$op = "accueil"; // par défaut
 	}
 
 	$Tc = new TshirtControler();
 
 	switch ($op)
 	{
+		case "liste":
+			$tabNomsTshirt = $Tc->liste();
+			$tabCreateurs = $Tc->listeCreateurs();
+			$tabMatieres = $Tc->listeMatieres();
+			$tabCategories = $Tc->listeCategories();
+			$tabTshirt=["tabNomsTshirt"=>$tabNomsTshirt,"tabCreateurs"=>$tabCreateurs,"tabMatieres"=>$tabMatieres,"tabCategories"=>$tabCategories];
+			break;
+
 		case "liste":
 			$tabNomsTshirt = $Tc->liste();
 			$tabCreateurs = $Tc->listeCreateurs();

@@ -1,10 +1,10 @@
 /* liste.scss */
 /* line 9, ../scss/liste.scss */
-body header form#connexion {
+body header form#connexion, body header form#inscription {
   float: right;
 }
 /* line 13, ../scss/liste.scss */
-body header form#connexion input {
+body header form#connexion input, body header form#inscription input {
   margin: 2px 0;
   float: right;
 }
