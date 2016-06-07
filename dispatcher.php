@@ -5,7 +5,7 @@
 	require_once("./c/BoutiqueControler.php");
 
 	$operation_permise=[
-		"inscription" => "connexion.html"
+		"inscription" => "connexion.html",
 		"connexion" => "index.html",
 		"liste" => "index.html",
 		"tri" => "index.html",
@@ -20,7 +20,7 @@
 	$op = (isset($_GET['operation']))?$_GET['operation']:1;
 	if(!isset($operation_permise[$op]))
 	{
-		$op = "accueil"; // par défaut
+		$op = "liste"; // par défaut
 	}
 
 	$Tc = new TshirtControler();
