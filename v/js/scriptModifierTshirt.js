@@ -21,9 +21,9 @@ $(function(){
 	}
 
 	function afficheModifierTshirt(ev){
-		$("ul.lTshirt li form").remove();
 		$leLI = $(this).parent().parent();
 		if (!$leLI.has("form").length){
+			$("ul.lTshirt li form").remove();
 			$.getJSON(
 				"dispatcher.php",
 				{
