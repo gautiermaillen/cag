@@ -7,12 +7,9 @@ body
 	{
 		form#connexion, form#inscription
 		{
-			float: right;
-
 			input
 			{
 				margin: 2px 0;
-				float: right;
 			}
 		}
 
@@ -20,7 +17,7 @@ body
 		{
 			float: right;
 			position: relative;
-			top: 20px;
+			top: -75px;
 		}
 	}
 

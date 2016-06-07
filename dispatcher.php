@@ -27,11 +27,7 @@
 
 	switch ($op)
 	{
-		case "liste":
-			$tabNomsTshirt = $Tc->liste();
-			$tabCreateurs = $Tc->listeCreateurs();
-			$tabMatieres = $Tc->listeMatieres();
-			$tabCategories = $Tc->listeCategories();
+		case "inscription":
 			$tabTshirt=["tabNomsTshirt"=>$tabNomsTshirt,"tabCreateurs"=>$tabCreateurs,"tabMatieres"=>$tabMatieres,"tabCategories"=>$tabCategories];
 			break;
 
