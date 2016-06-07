@@ -4,6 +4,7 @@ $(function(){
 	function afficheDetail(ev){
 		$leLI = $(this).parent().parent();
 		if (!$leLI.has("form").length){
+			$("ul.lTshirt li form").remove();
 			$.getJSON(
 				"dispatcher.php",
 				{
