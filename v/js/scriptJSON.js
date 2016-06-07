@@ -1,4 +1,5 @@
 // JQUERY
+var grandTableau;
 $(function(){
 	// Variable globale
 	$selectCreateurs = "form#recherche select[name=createurs]";
@@ -13,6 +14,7 @@ $(function(){
 			operation : "liste"
 		},
 		function(data){
+			grandTableau = data;
 			// Donnée reçue
 			// fonction créée dans le fichier JS "fonctionUtile.js"
 			boucleFor(data["tabNomsTshirt"],"li",$("section#tshirt ul.lTshirt"),"prod_nom","prod_id");
