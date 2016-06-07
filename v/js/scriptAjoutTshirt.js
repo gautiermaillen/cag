@@ -46,15 +46,21 @@ $(function(){
 
 		else
 		{
-
+			// Ferme le formulaire d'ajout au clique du bouton d'ajout
 			$("form.ajouterLTshirt").css({display:"none"});
 
+			// Crée le tableau de toutes les tailles et de leurs stocks respectifs
 			$tabTailles = [];
 			for (var i = 0; i < $("form.ajouterLTshirt section#stock p").length; i++){
-				console.log($("form.ajouterLTshirt section#stock p:nth-child("+i+") input").val()+" "+$(".ajouterLTshirt #stock p:nth-child("+i+") input").attr("name"));
+				$tabTailles[$tabTailles.length] = 
+					[
+						$("form.ajouterLTshirt section#stock p:nth-child("+(i+2)+") input").val(),
+						$("form.ajouterLTshirt section#stock p:nth-child("+(i+2)+") input").attr("name")
+					];
 			}
 
-			/*$.getJSON(
+			// Envoi les données récupérées dans le formulaire d'ajout d'un T-shirt
+			$.getJSON(
 				"dispatcher.php",
 				{
 					operation : "ajout",
@@ -69,7 +75,7 @@ $(function(){
 					categorie : $ajout_categorie,
 					tailles : 	$tabTailles
 				}
-			);*/
+			);
 		}
 	}
 });
