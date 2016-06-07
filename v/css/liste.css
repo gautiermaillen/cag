@@ -20,29 +20,34 @@ body main #recherche {
   top: 30px;
 }
 /* line 38, ../scss/liste.scss */
+body main .container form.ajouterLTshirt {
+  position: relative;
+  top: 50px;
+}
+/* line 44, ../scss/liste.scss */
 body main .container a.ajouterLTshirt {
   float: right;
   padding: 2px 6px 3px;
   border-radius: 3px;
   border: 1px solid #969696;
 }
-/* line 47, ../scss/liste.scss */
+/* line 53, ../scss/liste.scss */
 body main ul.lCat {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 20px 6px 15px;
 }
-/* line 54, ../scss/liste.scss */
+/* line 60, ../scss/liste.scss */
 body main ul.lCat li {
   padding: 11px 40px 0;
   margin: 0.5px;
-  background: rgba(0, 30, 80, 0);
+  background: rgba(0, 30, 80, 0.85);
   flex: 1;
   transition: 0.3s;
   border-radius: 2px;
 }
-/* line 63, ../scss/liste.scss */
+/* line 69, ../scss/liste.scss */
 body main ul.lCat li a {
   transition: 0.3s;
   display: block;
@@ -53,53 +58,53 @@ body main ul.lCat li a {
   font-weight: bold;
   color: white;
 }
-/* line 77, ../scss/liste.scss */
+/* line 83, ../scss/liste.scss */
 body main ul.lCat li:hover {
-  background: rgba(0, 30, 80, 0);
+  background: rgba(0, 30, 80, 0.8);
 }
-/* line 82, ../scss/liste.scss */
+/* line 88, ../scss/liste.scss */
 body main ul.lTshirt {
   position: relative;
   top: 40px;
 }
-/* line 86, ../scss/liste.scss */
+/* line 92, ../scss/liste.scss */
 body main ul.lTshirt li {
   padding: 3px 0 2px;
   margin: 6px 4px;
   border-radius: 2px;
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0.04);
   transition: 0.3s;
 }
-/* line 94, ../scss/liste.scss */
+/* line 100, ../scss/liste.scss */
 body main ul.lTshirt li form {
   background: white;
 }
-/* line 98, ../scss/liste.scss */
+/* line 104, ../scss/liste.scss */
 body main ul.lTshirt li form li {
   background: white;
 }
-/* line 103, ../scss/liste.scss */
+/* line 109, ../scss/liste.scss */
 body main ul.lTshirt li form li:hover {
   background: white;
 }
-/* line 109, ../scss/liste.scss */
+/* line 115, ../scss/liste.scss */
 body main ul.lTshirt li ul.options {
   margin-left: 10px;
   width: 80px;
   float: left;
 }
-/* line 115, ../scss/liste.scss */
+/* line 121, ../scss/liste.scss */
 body main ul.lTshirt li ul.options li {
   background-color: none;
   background: rgba(0, 0, 0, 0);
   position: relative;
   top: -4px;
 }
-/* line 123, ../scss/liste.scss */
+/* line 129, ../scss/liste.scss */
 body main ul.lTshirt li ul.options li:hover {
   color: #1e64a0;
 }
-/* line 132, ../scss/liste.scss */
+/* line 138, ../scss/liste.scss */
 body main ul.lTshirt li:hover {
-  background: rgba(40, 150, 200, 0);
+  background: rgba(40, 150, 200, 0.3);
 }
