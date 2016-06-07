@@ -79,13 +79,13 @@
 			return $at;
 		}
 
-		// public function modifierTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie)
-		// {
-		// 	$Ta = new TshirtAdapter($this->Connec);
-		// 	$mt = $Ta->modifTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie);
+		public function modifierTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie)
+		{
+			$Ta = new TshirtAdapter($this->Connec);
+			$mt = $Ta->modifierTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie);
 
-		// 	return $mt;
-		// }
+			return $mt;
+		}
 
 		public function supprimerTshirt($id)
 		{
