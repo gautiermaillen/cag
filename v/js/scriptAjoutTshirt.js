@@ -46,7 +46,15 @@ $(function(){
 
 		else
 		{
-			$.getJSON(
+
+			$("form.ajouterLTshirt").css({display:"none"});
+
+			$tabTailles = [];
+			for (var i = 0; i < $("form.ajouterLTshirt section#stock p").length; i++){
+				console.log($("form.ajouterLTshirt section#stock p:nth-child("+i+") input").val()+" "+$(".ajouterLTshirt #stock p:nth-child("+i+") input").attr("name"));
+			}
+
+			/*$.getJSON(
 				"dispatcher.php",
 				{
 					operation : "ajout",
@@ -58,9 +66,10 @@ $(function(){
 					img_pt : 	$ajout_img_pt.val(),
 					createur: 	$ajout_createur,
 					matiere : 	$ajout_matiere,
-					categorie : $ajout_categorie
+					categorie : $ajout_categorie,
+					tailles : 	$tabTailles
 				}
-			);
+			);*/
 		}
 	}
 });
