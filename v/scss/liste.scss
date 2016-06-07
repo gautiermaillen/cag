@@ -3,94 +3,140 @@
 
 body
 {
-	ul.lCat
+	header
 	{
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		margin: 20px 6px 15px;
-
-		li
+		form#connexion, form#inscription
 		{
-			padding: 11px 40px 0;
-			margin: 0.5px;
-			background: rgba(0,30,80,0.85);
-			flex: 1;
-			transition: 0.3s;
-			border-radius: 2px;
-
-			a
+			input
 			{
+				margin: 2px 0;
+			}
+		}
+
+		form#moteurDeRecherche
+		{
+			float: right;
+			position: relative;
+			top: -75px;
+		}
+	}
+
+	main
+	{
+		#recherche
+		{
+			position: relative;
+			top: 30px;
+		}
+
+		.container
+		{
+			form.ajouterLTshirt
+			{
+				position: relative;
+				top: 50px;
+				margin-bottom: 30px;
+			}
+
+			a.ajouterLTshirt
+			{
+				float: right;
+				padding: 2px 6px 3px;
+				border-radius: 3px;
+	    		border: 1px solid rgb(150,150,150);
+			}
+		}
+
+		ul.lCat
+		{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin: 20px 6px 15px;
+
+			li
+			{
+				padding: 11px 40px 0;
+				margin: 0.5px;
+				background: rgba(0,30,80,0.85);
+				flex: 1;
 				transition: 0.3s;
-				display: block;
-				margin-bottom: 10px;
-			    text-transform: uppercase;
-				text-align: center;
-				letter-spacing: 0.1em;
-				font-weight: bold;
-				color: white;
+				border-radius: 2px;
+
+				a
+				{
+					transition: 0.3s;
+					display: block;
+					margin-bottom: 10px;
+				    text-transform: uppercase;
+					text-align: center;
+					letter-spacing: 0.1em;
+					font-weight: bold;
+					color: white;
+				}
 			}
 		}
-	}
 
-	ul.lCat li:hover
-	{
-		background: rgba(0,30,80,0.8);
-	}
-
-	ul.lTshirt
-	{
-		li
+		ul.lCat li:hover
 		{
-			padding: 3px 0 2px;
-			margin: 6px 4px;
-			border-radius: 2px;
-			background: rgba(0,0,0,0.04);
-			transition: 0.3s;
-
-			form
-			{
-				background: white;
-
-				li
-				{
-					background: white;
-				}
-
-				li:hover
-				{
-					background: white;
-				}
-			}
-
-			ul.options
-			{
-				margin-left: 10px;
-				width: 7%;
-				float: left;
-
-				li
-				{
-					background-color: none;
-					background: rgba(0,0,0,0);
-					position: relative;
-					top: -4px;
-				}
-
-				li:hover
-				{
-					color: rgba(30,100,160,1);
-				}
-			}
+			background: rgba(0,30,80,0.8);
 		}
 
-	}
+		ul.lTshirt
+		{
+			position: relative;
+			top: 40px;
+			li
+			{
+				padding: 3px 0 2px;
+				margin: 6px 4px;
+				border-radius: 2px;
+				background: rgba(0,0,0,0.04);
+				transition: 0.3s;
 
-	ul.lTshirt li:hover
-	{
-		background: rgba(40,150,200,0.3);
-	}
+				form
+				{
+					background: white;
 
+					li
+					{
+						background: white;
+					}
+
+					li:hover
+					{
+						background: white;
+					}
+				}
+
+				ul.options
+				{
+					margin-left: 10px;
+					width: 80px;
+					float: left;
+
+					li
+					{
+						background-color: none;
+						background: rgba(0,0,0,0);
+						position: relative;
+						top: -4px;
+					}
+
+					li:hover
+					{
+						color: rgba(30,100,160,1);
+					}
+				}
+			}
+
+		}
+
+		ul.lTshirt li:hover
+		{
+			background: rgba(40,150,200,0.3);
+		}
+	}
 }
 
 

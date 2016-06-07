@@ -1,6 +1,6 @@
-/* details.scss */
-/* line 7, ../scss/main.scss */
-body main {
-  width: 70%;
-  margin: 0 auto;
+/* main.scss */
+/* line 5, ../scss/main.scss */
+body {
+  width: 75%;
+  margin: 30px auto 20px;
 }
