@@ -13,7 +13,7 @@
 		"ajout" => "index.html",
 		"affichage" => "index.html",
 		"modification" => "index.html",
-		"suppression" => "index.html",
+		"suppression" => "index.html"
 	];
 	
 	//Récupérer l'opération 
@@ -27,10 +27,6 @@
 
 	switch ($op)
 	{
-		case "inscription":
-			$tabTshirt=["tabNomsTshirt"=>$tabNomsTshirt,"tabCreateurs"=>$tabCreateurs,"tabMatieres"=>$tabMatieres,"tabCategories"=>$tabCategories];
-			break;
-
 		case "liste":
 			$tabNomsTshirt = $Tc->liste();
 			$tabCreateurs = $Tc->listeCreateurs();

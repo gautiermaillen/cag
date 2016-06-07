@@ -139,7 +139,7 @@
             VALUES
                 (NULL,:j,:k,:l)";
             $stmt2 = $this->pdo->prepare($sql2);
-            $stmt2->execute([":j"=>$tshirtId,":k"=>$stock,":l"=>$taille])
+            $stmt2->execute([":j"=>$tshirtId,":k"=>$stock,":l"=>$taille]);
                 
             /* lorsqu'on crée un t-shirt, on crée plusieurs exemplaires de celui-ci (1 par taille)*/
         }
