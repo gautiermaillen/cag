@@ -136,11 +136,15 @@
                 prod_date,
                 cre_nom,
                 cat_nom,
-                mat_nom
+                mat_nom,
+                exem_stock,
+                tail_nom
             FROM produits
             JOIN createurs ON prod_fk_createur = cre_id
             JOIN matieres ON mat_id = prod_fk_matiere
-            JOIN categories ON cat_id = prod_fk_categorie 
+            JOIN categories ON cat_id = prod_fk_categorie
+            JOIN exemplaires ON exem_fk_tee = prod_id 
+            JOIN tailles ON tail_id = exem_fk_tail 
             WHERE prod_id=:a   
             ";
             $stmt = $this->pdo->prepare($sql);
