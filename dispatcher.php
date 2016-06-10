@@ -29,8 +29,8 @@
 	switch ($op)
 	{
 		case "inscription":
-            $login = $_POST['login'];
-            $mdp = MD5($_POST['mdp']);
+            $login = $_GET['login'];
+            $mdp = MD5($_GET['mdp']);
             $Cc->inscription($login, $mdp);
 			break;
 
