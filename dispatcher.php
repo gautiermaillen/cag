@@ -24,9 +24,16 @@
 	}
 
 	$Tc = new TshirtControler();
+	$Cc = new ConnexionControler();
 
 	switch ($op)
 	{
+		case "inscription":
+            $login = $_POST['login'];
+            $mdp = MD5($_POST['mdp']);
+            $Cc->inscription($login, $mdp);
+			break;
+
 		case "liste":
 			$tabNomsTshirt = $Tc->liste();
 			$tabCreateurs = $Tc->listeCreateurs();

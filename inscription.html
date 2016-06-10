@@ -26,10 +26,12 @@
 	<header>
 		<section>
 			<h1><a href="#">Clothes.</a></h1>
-			<form id="inscription">
-				<input type="text" placeholder="login" name="login"><br/>
-				<input type="password" placeholder="mot de passe" name="pwd"><br/>
-				<input type="button" id="inscription" value="Inscrivez-vous">
+			<form id="inscription" method="post">
+				<label for="login">Login</label>
+				<input type="text" placeholder="login" name="login"/><br/>
+				<label for="mdp">Mot de passe</label>
+				<input type="password" placeholder="mot de passe" name="mdp"/><br/>
+				<input type="submit" id="inscription" value="Inscrivez-vous">
 			</form>
 		</section>
 	</header>

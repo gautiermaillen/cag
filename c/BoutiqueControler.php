@@ -97,4 +97,32 @@
 	}
 
 
+	class ConnexionControler
+	{
+		private $connect;
+
+		public function __construct()
+		{
+			$this->Connec = DBConnexion::getInstance();
+		}
+
+	 	function inscription($login, $mdp)
+	 	{
+			$Aa = new ConnexionAdapter($this->Connec);
+			$tabUsers = $Aa->verifierIdentite($login); // récupérer un tableau soit vide soit avec un utilisateur
+
+			// Si le tableau renvoie un utilisateur, c'est que le nom est déjà pris
+			// Sinon, on peut l'inscrire
+			if((count($tabUsers))==0)
+			{
+				echo "on peut t'inscrire";
+				$Aa->inscription($login, $mdp);
+			}
+
+			else
+			{
+				echo "login déjà pris";
+			}
+	 	}
+	}
 
