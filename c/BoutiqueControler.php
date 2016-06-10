@@ -127,8 +127,8 @@
 			$Ca = new ConnexionAdapter($this->Connec);
 			$tabUsers = $Ca->connexion($login, $mdp); // récupérer un tableau soit vide soit avec un utilisateur
 
-			// Si le tableau renvoie un utilisateur, c'est que le nom est déjà pris
-			// Sinon, on peut l'inscrire
+			// Si le tableau renvoie un utilisateur, c'est qu'on peut se connecter
+			// Sinon, les valeurs sont incorrectes
 			if((count($tabUsers))==0)
 			{
 				echo "login ou mot de passe incorrect";
