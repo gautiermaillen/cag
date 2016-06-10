@@ -115,16 +115,10 @@
 			// Si le tableau renvoie un utilisateur, c'est que le nom est déjà pris
 			// Sinon, on peut l'inscrire
 			if((count($tabUsers))==0)
-			{
-
+			{	
 				$Ca->inscription($login, $mdp);
 				
 				header('location: connexion.html');
-			}
-
-			else
-			{
-				echo "login déjà pris";
 			}
 	 	}
 

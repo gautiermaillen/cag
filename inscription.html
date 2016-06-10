@@ -12,11 +12,6 @@
 	<link rel="stylesheet" href="v/css/header.css">
 	<link rel="stylesheet" href="v/css/liste.css">
 	<link rel="stylesheet" href="v/css/main.css"> -->
-	<style>
-		form.ajouterLTshirt{
-			display: none;
-		}
-	</style>
 
 	<!-- SCRIPT -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -26,13 +21,12 @@
 	<header>
 		<section>
 			<h1><a href="#">Clothes.</a></h1>
-			<form method="POST" action="dispatcher.php">
+			<form method="POST">
 				<label for="login">Login</label>
 				<input type="text" placeholder="login" name="login"/><br/>
 				<label for="mdp">Mot de passe</label>
 				<input type="password" placeholder="mot de passe" name="mdp"/><br/>
-				<input type="hidden" name="operation" value="inscription">
-				<input type="submit" value="Inscrivez-vous">
+				<input type="button" value="Inscrivez-vous" id="inscription">
 			</form>
 		</section>
 	</header>
