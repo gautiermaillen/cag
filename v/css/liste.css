@@ -12,7 +12,6 @@ body header form#moteurDeRecherche {
 /* line 27, ../scss/liste.scss */
 body main #recherche {
   position: relative;
-  top: 30px;
 }
 /* line 35, ../scss/liste.scss */
 body main .container form.ajouterLTshirt {
