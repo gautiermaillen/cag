@@ -1,7 +1,9 @@
 <?php
+    require_once __DIR__."/Tshirt.php";
+
     class ConnexionAdapter {
+        private $verifierIdentite = [];
         private $pdo;
-        /*private*/ 
             
         public function __construct(PDO $pdo)
 		{
@@ -11,9 +13,16 @@
         public function verifierIdentite(){
             /* sélectionner tous les users et les logins de la table administrateurs et vérifier s'il y en a un qui correspond au login qu'on fait passer*/
             $sql = "
-            
+            SELECT
+				admin_id,
+                admin_login,
+                admin_pwd
+				FROM administrateurs
             ";
-            $stmt = $this->pdo->prepare($sql);
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute();
+			$this->verifierIdentite = $stmt->fetchAll(PDO::FETCH_CLASS, "Tshirt");
+			return $this->verifierIdentite;
         }
         
         public function inscription($login,$mdp)
