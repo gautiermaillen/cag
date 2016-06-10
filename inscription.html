@@ -7,11 +7,11 @@
 	<!-- STYLE -->
 	<link rel="stylesheet" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	<link rel="stylesheet" href="v/css/style.css">
+<!-- 	<link rel="stylesheet" href="v/css/style.css">
 	<link rel="stylesheet" href="v/css/normalize.css">
 	<link rel="stylesheet" href="v/css/header.css">
 	<link rel="stylesheet" href="v/css/liste.css">
-	<link rel="stylesheet" href="v/css/main.css">
+	<link rel="stylesheet" href="v/css/main.css"> -->
 	<style>
 		form.ajouterLTshirt{
 			display: none;
@@ -26,10 +26,13 @@
 	<header>
 		<section>
 			<h1><a href="#">Clothes.</a></h1>
-			<form id="inscription">
-				<input type="text" placeholder="login" name="login"><br/>
-				<input type="password" placeholder="mot de passe" name="pwd"><br/>
-				<input type="button" id="inscription" value="Inscrivez-vous">
+			<form method="get" action="dispatcher.php">
+				<label for="login">Login</label>
+				<input type="text" placeholder="login" name="login"/><br/>
+				<label for="mdp">Mot de passe</label>
+				<input type="password" placeholder="mot de passe" name="mdp"/><br/>
+				<input type="hidden" name="operation" value="inscription">
+				<input type="submit" value="Inscrivez-vous">
 			</form>
 		</section>
 	</header>
