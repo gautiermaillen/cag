@@ -109,22 +109,40 @@
 
 	 	function inscription($login, $mdp)
 	 	{
-			$Aa = new ConnexionAdapter($this->Connec);
-			$tabUsers = $Aa->verifierIdentite($login); // récupérer un tableau soit vide soit avec un utilisateur
-var_dump($tabUsers);
+			$Ca = new ConnexionAdapter($this->Connec);
+			$tabUsers = $Ca->verifierIdentite($login); // récupérer un tableau soit vide soit avec un utilisateur
+
 			// Si le tableau renvoie un utilisateur, c'est que le nom est déjà pris
 			// Sinon, on peut l'inscrire
 			if((count($tabUsers))==0)
 			{
+
+				$Ca->inscription($login, $mdp);
 				
-				$Aa->inscription($login, $mdp);
-				echo "Te voilà inscris ! :)";
-				header('Location: connexion.html');
+				header('location: connexion.html');
 			}
 
 			else
 			{
 				echo "login déjà pris";
+			}
+	 	}
+
+	 	function connexion($login, $mdp)
+	 	{
+			$Ca = new ConnexionAdapter($this->Connec);
+			$tabUsers = $Ca->connexion($login); // récupérer un tableau soit vide soit avec un utilisateur
+
+			// Si le tableau renvoie un utilisateur, c'est que le nom est déjà pris
+			// Sinon, on peut l'inscrire
+			if((count($tabUsers))==0)
+			{
+				echo "login ou mot de passe incorrect";
+			}
+
+			else
+			{
+				header('location: index.html');
 			}
 	 	}
 	}

@@ -23,15 +23,27 @@
 		$op = "liste"; // par défaut
 	}
 
+	$op = (isset($_POST['operation']))?$_POST['operation']:1;
+	if(!isset($operation_permise[$op]))
+	{
+		$op = "liste"; // par défaut
+	}
+
 	$Tc = new TshirtControler();
 	$Cc = new ConnexionControler();
 
 	switch ($op)
 	{
 		case "inscription":
-            $login = $_GET['login'];
-            $mdp = MD5($_GET['mdp']);
+            $login = $_POST['login'];
+            $mdp = MD5($_POST['mdp']);
             $Cc->inscription($login, $mdp);
+			break;
+
+		case "connexion":
+            $login = $_POST['login'];
+            $mdp = MD5($_POST['mdp']);
+            $Cc->connexion($login, $mdp);
 			break;
 
 		case "liste":
