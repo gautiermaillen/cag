@@ -4,13 +4,17 @@ $(function(){
 	function verifOk(){
 		$.ajax(
 			"dispatcher.php",
-			{
+			method:"POST",
+			data:{
 				operation : "inscription",
 				login : 	$("input[name=login]"),
 				mdp : 		$("input[name=mdp")
 			},
-			function(data){
+			success:function(doc,status,xhr){
 				alert(data);
+			},
+			error:function(){
+				alert("Erreur AJAX verifOk");
 			}
 		);
 	}
