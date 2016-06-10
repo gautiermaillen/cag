@@ -42,6 +42,24 @@
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":a"=>$login,":b"=>$mdp]);
         }
+        
+        public function connexion($login,$mdp)
+        {
+            $sql = "
+            SELECT
+				admin_id,
+                admin_login,
+                admin_pwd
+				FROM administrateurs
+                WHERE admin_login=:a
+                    AND
+                    admin_pwd=:b
+            ";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute([":a"=>$login,":b"=>$mdp]);
+			$this->connexion = $stmt->fetchAll(PDO::FETCH_CLASS, "Tshirt");
+			return $this->connexion;
+        }
     }
 
 ?>
