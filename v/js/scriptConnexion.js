@@ -1,5 +1,5 @@
 $(function(){
-	$("input[type=text]").on("keyup",verifOk);
+	$("input[type=button]").on("click",verifOk);
 
 	function verifOk(){
 		$.ajax(
@@ -7,14 +7,14 @@ $(function(){
 				method:"POST",
 				data:{
 					operation : "inscription",
-					login : 	$("input[name=login]"),
-					mdp : 		$("input[name=mdp")
+					login : 	$("input[name=login]").val(),
+					mdp : 		$("input[name=mdp]").val()
 				},
 				success:function(doc,status,xhr){
-					alert(data);
+					location.replace("connexion.html");
 				},
 				error:function(){
-					alert("Erreur AJAX verifOk");
+					alert("Login déjà existant");
 				}
 			}
 		);
