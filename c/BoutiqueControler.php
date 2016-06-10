@@ -131,7 +131,7 @@
 	 	function connexion($login, $mdp)
 	 	{
 			$Ca = new ConnexionAdapter($this->Connec);
-			$tabUsers = $Ca->connexion($login); // récupérer un tableau soit vide soit avec un utilisateur
+			$tabUsers = $Ca->connexion($login, $mdp); // récupérer un tableau soit vide soit avec un utilisateur
 
 			// Si le tableau renvoie un utilisateur, c'est que le nom est déjà pris
 			// Sinon, on peut l'inscrire

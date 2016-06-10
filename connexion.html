@@ -26,12 +26,13 @@
 	<header>
 		<section>
 			<h1><a href="#">Clothes.</a></h1>
-			<form id="connexion" method="post">
+			<form method="POST" action="dispatcher.php">
 				<label for="login">Login</label>
 				<input type="text" placeholder="login" name="login"/><br/>
 				<label for="mdp">Mot de passe</label>
 				<input type="password" placeholder="mot de passe" name="mdp"/><br/>
-				<input type="submit" id="connexion" value="Se connecter">
+				<input type="hidden" name="operation" value="connexion">
+				<input type="submit" value="Inscrivez-vous">
 				<p>Pas encore inscris ? <a href="inscription.html" id="inscriptionForm" value="Inscrivez-vous">Inscrivez-vous !</a><br/>
 			</form>
 		</section>
