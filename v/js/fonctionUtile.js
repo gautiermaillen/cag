@@ -9,6 +9,19 @@ function boucleFor($tab,$quoi,$ou,$pourquoi,$id_pourquoi){
 	}
 }
 
+function lesIcones($tabTshirt){
+	for (var i = 0; i < $tabTshirt.length; i++)
+	{
+		$ul = $("<ul>").attr("class", "options");
+
+		$("<li>").attr("name", "afficher").attr("class", "fa fa-eye").appendTo($ul);
+		$("<li>").attr("name", "modifier").attr("class", "fa fa-pencil").appendTo($ul);
+		$("<li>").attr("name", "supprimer").attr("class", "fa fa-times").appendTo($ul);
+
+		$ul.appendTo($tabTshirt[i]);
+	}
+}
+
 // Supprime les enfants d'une balise HTML passé en paramètre
 function supprimerEnfant($parent){
 	$($parent).children().remove();

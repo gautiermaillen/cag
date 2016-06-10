@@ -24,18 +24,9 @@ $(function(){
 			boucleFor(data["tabCreateurs"],"option",$("form.ajouterLTshirt select[name=createur]"),"cre_nom","cre_id");
 			boucleFor(data["tabMatieres"],"option",$("form.ajouterLTshirt select[name=matiere]"),"mat_nom","mat_id");
 			boucleFor(data["tabCategories"],"option",$("form.ajouterLTshirt select[name=categorie]"),"cat_nom","cat_id");
-		
-			$tabTshirt = $("section#tshirt ul.lTshirt li");
-			for (var i = 0; i < $tabTshirt.length; i++)
-			{
-				$ul = $("<ul>").attr("class", "options");
-
-				$("<li>").attr("name", "afficher").attr("class", "fa fa-eye").appendTo($ul);
-				$("<li>").attr("name", "modifier").attr("class", "fa fa-pencil").appendTo($ul);
-				$("<li>").attr("name", "supprimer").attr("class", "fa fa-times").appendTo($ul);
-
-				$ul.appendTo($tabTshirt[i]);
-			}
+			
+			// "fonctionUtile.js", crée les icones sur chaque li
+			lesIcones($("section#tshirt ul.lTshirt li"));
 		}
 
 	);
