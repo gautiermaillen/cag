@@ -14,7 +14,7 @@ $(function(){
 					location.replace("connexion.html");
 				},
 				error:function(){
-					alert("Login déjà existant");
+					$("input[name=login]").after("<span class='error'>Login déjà existant</span>");
 				}
 			}
 		);
