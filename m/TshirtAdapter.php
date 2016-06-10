@@ -208,7 +208,8 @@
         
         public function supprimerTshirt($id) 
         {
-            $sql = "DELETE 
+            $sql = "
+            DELETE 
             FROM produits 
             WHERE prod_id=:a";
             $stmt = $this->pdo->prepare($sql);
