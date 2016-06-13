@@ -63,20 +63,25 @@ $(function(){
 			}
 
 			// Envoi les données récupérées dans le formulaire d'ajout d'un T-shirt
-			$.getJSON(
-				"dispatcher.php",
-				{
-					operation : "ajout",
-					nom : 		$ajout_nom.val(),
-					prix : 		$ajout_prix.val(),
-					date : 		$ajout_date.val(),
-					desc : 		$ajout_desc.val(),
-					img_gd : 	$ajout_img_gd.val(),
-					img_pt : 	$ajout_img_pt.val(),
-					createur: 	$ajout_createur,
-					matiere : 	$ajout_matiere,
-					categorie : $ajout_categorie,
-					tailles : 	$tabTailles
+			$.ajax(
+				"dispatcher.php",{
+					method:"GET",
+					data:{
+						operation : "ajout",
+						nom : 		$ajout_nom.val(),
+						prix : 		$ajout_prix.val(),
+						date : 		$ajout_date.val(),
+						desc : 		$ajout_desc.val(),
+						img_gd : 	$ajout_img_gd.val(),
+						img_pt : 	$ajout_img_pt.val(),
+						createur: 	$ajout_createur,
+						matiere : 	$ajout_matiere,
+						categorie : $ajout_categorie,
+						tailles : 	$tabTailles
+					},
+					success:function(doc,status,xhr){
+						location.reload();
+					}
 				}
 			);
 		}
