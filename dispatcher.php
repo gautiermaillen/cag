@@ -27,6 +27,12 @@
 		$op = $_POST['operation'];
 	}
 
+	// $op = (isset($_POST['operation']))?$_POST['operation']:1;
+	// if(!isset($operation_permise[$op]))
+	// {
+	// 	$op = "liste"; // par défaut
+	// }
+
 	$Tc = new TshirtControler();
 	$Cc = new ConnexionControler();
 
