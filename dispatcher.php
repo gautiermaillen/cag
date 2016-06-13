@@ -28,6 +28,9 @@
 	// {
 	// 	$op = "liste"; // par défaut
 	// }
+	if (isset($_POST['operation'])){
+		$op = $_POST['operation'];
+	}
 
 	$Tc = new TshirtControler();
 	$Cc = new ConnexionControler();
