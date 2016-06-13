@@ -106,7 +106,7 @@
 		{
 			$this->Connec = DBConnexion::getInstance();
 		}
-
+		
 	 	function inscription($login, $mdp)
 	 	{
 			$Ca = new ConnexionAdapter($this->Connec);
