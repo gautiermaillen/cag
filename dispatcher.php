@@ -22,19 +22,11 @@
 	{
 		$op = "liste"; // par défaut
 	}
-
-<<<<<<< HEAD
-	// $op = (isset($_POST['operation']))?$_POST['operation']:1;
-	// if(!isset($operation_permise[$op]))
-	// {
-	// 	$op = "liste"; // par défaut
-	// }
+	
 	if (isset($_POST['operation'])){
 		$op = $_POST['operation'];
 	}
 
-=======
->>>>>>> origin/master
 	$Tc = new TshirtControler();
 	$Cc = new ConnexionControler();
 
