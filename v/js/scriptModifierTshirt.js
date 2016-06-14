@@ -33,6 +33,9 @@ $(function(){
 				function(data){
 					// Voir dans fonctionUtile.js
 					formulaireModif(data[0],$leLI);
+					for (var i = 0; i < data.length; i++){
+						formulaireModif(data[i],$leLI,"tailles");
+					}
 
 					// grandTableau est le tableau regroupant tous les t-shirts. Voir scriptJSON.js
 					boucleFor(grandTableau["tabCreateurs"],"option",$("ul.lTshirt li select[name=createur]"),"cre_nom","cre_id");

@@ -94,12 +94,13 @@ body main ul.lTshirt li ul.options li {
   background: rgba(0, 0, 0, 0);
   position: relative;
   top: -4px;
+  cursor: pointer;
 }
-/* line 126, ../scss/liste.scss */
+/* line 127, ../scss/liste.scss */
 body main ul.lTshirt li ul.options li:hover {
   color: #1e64a0;
 }
-/* line 135, ../scss/liste.scss */
+/* line 136, ../scss/liste.scss */
 body main ul.lTshirt li:hover {
   background: rgba(40, 150, 200, 0.3);
 }

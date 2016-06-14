@@ -14,6 +14,9 @@ $(function(){
 				function(data){
 					// Voir dans fonctionUtile.js
 					formulaire(data[0],$leLI);
+					for (var i = 0; i < data.length; i++){
+						formulaire(data[i],$leLI,"tailles");
+					}
 				}
 			);
 		}

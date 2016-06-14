@@ -10,7 +10,6 @@ function boucleFor($tab,$quoi,$ou,$pourquoi,$id_pourquoi){
 }
 
 function lesIcones($tabTshirt){
-	console.log('lesIcones');
 	for (var i = 0; i < $tabTshirt.length; i++)
 	{
 		$ul = $("<ul>").attr("class", "options");
@@ -29,8 +28,16 @@ function supprimerEnfant($parent){
 }
 
 // Création du formulaire d'affichage du t-shirt sélectionné 
-function formulaire($tshirt,$element){
-	$($element).append("<form><fieldset><legend>"+$tshirt["prod_nom"]+"</legend><ul><li>Prix : "+$tshirt["prod_prix"]+"</li><li>Date : "+$tshirt["prod_date"]+"</li><li>Description : "+$tshirt["prod_desc"]+"</li><li>Créateur : "+$tshirt["cre_nom"]+"</li><li>Matière : "+$tshirt["mat_nom"]+"</li><li>Catégorie : "+$tshirt["cat_nom"]+"</li></ul></fieldset></form>");
+function formulaire($tshirt,$element,$tail){
+	$tail = ($tail == undefined)?false:true;
+	if ($tail){
+		if ($tshirt["exem_stock"] != 0){
+			$($element).children("form").children("fieldset").append("<p>"+$tshirt["tail_nom"]+" : "+$tshirt["exem_stock"]+"</p>");
+		}
+	}
+	else{
+		$($element).append("<form><fieldset><legend>"+$tshirt["prod_nom"]+"</legend><ul><li>Prix : "+$tshirt["prod_prix"]+"</li><li>Date : "+$tshirt["prod_date"]+"</li><li>Description : "+$tshirt["prod_desc"]+"</li><li>Créateur : "+$tshirt["cre_nom"]+"</li><li>Matière : "+$tshirt["mat_nom"]+"</li><li>Catégorie : "+$tshirt["cat_nom"]+"</li></ul></fieldset></form>");
+	}
 }
 
 $(function() {
@@ -41,6 +48,13 @@ $(function() {
 
 });
 
-function formulaireModif($tshirt,$element){
-	$($element).append("<form><fieldset><legend>"+$tshirt["prod_nom"]+"</legend><p><label>Nom : </label><input type='text' name='nom' value='"+$tshirt["prod_nom"]+"'></p><p><label>Prix : </label><input type='text' name='prix' value='"+$tshirt["prod_prix"]+"'></p><p><label>Date : </label><input type='text' name='date' value='"+$tshirt["prod_date"]+"'></p><p><label>Description : </label><textarea name='desc'>"+$tshirt["prod_desc"]+"</textarea></p><p><label>Créateur : </label><select name='createur'><option>"+$tshirt["cre_nom"]+"</option></select></p><p><label>Matière : </label><select name='matiere'><option>"+$tshirt["mat_nom"]+"</option></select></p><p><label>Catégorie : </label><select name='categorie'><option>"+$tshirt["cat_nom"]+"</option></select></p><p><input type='button' id='modifier' value='Modifier'></p></fieldset></form>");
+function formulaireModif($tshirt,$element,$tail){
+	$tail = ($tail == undefined)?false:true;
+	if ($tail){
+		$($element).children("form").children("fieldset").append("<p><label>"+$tshirt["tail_nom"]+"</label><input type='text' value='"+$tshirt["exem_stock"]+"'></p></section>");
+	}
+	else{
+		$($element).append("<form><fieldset><legend>"+$tshirt["prod_nom"]+"</legend><p><label>Nom : </label><input type='text' name='nom' value='"+$tshirt["prod_nom"]+"'></p><p><label>Prix : </label><input type='text' name='prix' value='"+$tshirt["prod_prix"]+"'></p><p><label>Date : </label><input type='text' name='date' value='"+$tshirt["prod_date"]+"'></p><p><label>Description : </label><textarea name='desc'>"+$tshirt["prod_desc"]+"</textarea></p><p><label>Créateur : </label><select name='createur'><option>"+$tshirt["cre_nom"]+"</option></select></p><p><label>Matière : </label><select name='matiere'><option>"+$tshirt["mat_nom"]+"</option></select></p><p><label>Catégorie : </label><select name='categorie'><option>"+$tshirt["cat_nom"]+"</option></select></p><p><input type='button' id='modifier' value='Modifier'></p><section></fieldset></form>");
+	}
+	
 }
