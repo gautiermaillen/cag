@@ -104,7 +104,7 @@
 			return $this->listeRech;          
         }
         
-        public function creerTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie)
+        public function creerTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$id,$taille,$stock)
         {
             /* insertion dans les produits */
             $sql = "INSERT INTO 
@@ -139,8 +139,9 @@
             VALUES
                 (NULL,:j,:k,:l)";
             $stmt2 = $this->pdo->prepare($sql2);
-            $stmt2->execute([":j"=>$tshirtId,":k"=>$stock,":l"=>$taille]);
-                
+            $stmt2->execute([":j"=>$id,":k"=>$stock,":l"=>$taille]);
+
+            /* id déjà créé au dessus ? */
             /* lorsqu'on crée un t-shirt, on crée plusieurs exemplaires de celui-ci (1 par taille)*/
         }
         
@@ -185,7 +186,7 @@
 			return $this->afficherTshirt;
         }
         
-        public function modifierTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$id)
+        public function modifierTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$id,$taille,$stock)
         {
             $sql = "UPDATE
                 produits
@@ -204,16 +205,39 @@
             ";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie,":j"=>$id]);
+            
+            $sql2 = "
+                UPDATE
+                    exemplaires
+                SET 
+                    exem_fk_tail=:k,
+                    exem_stock=:l
+                WHERE 
+                    exem_fk_tee=:m        
+            ";
+            $stmt2 = $this->pdo->prepare($sql2);
+            $stmt2->execute([":k"=>$taille,":l"=>$stock,":m"=>$id]);
+            /* id ? */
         }
         
         public function supprimerTshirt($id) 
         {
             $sql = "
-            DELETE 
-            FROM produits 
-            WHERE prod_id=:a";
+                DELETE 
+                FROM produits 
+                WHERE prod_id=:a
+            ";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":a"=>$id]);
+            
+            $sql2 = "
+                DELETE 
+                FROM exemplaires 
+                WHERE exem_fk_tee=:b
+            ";
+            $stmt2 = $this->pdo->prepare($sql2);
+            $stmt2->execute([":b"=>$id]);
+            /* id ? */
         }
 	}
 
