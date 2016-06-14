@@ -10,6 +10,7 @@ function boucleFor($tab,$quoi,$ou,$pourquoi,$id_pourquoi){
 }
 
 function lesIcones($tabTshirt){
+	console.log('lesIcones');
 	for (var i = 0; i < $tabTshirt.length; i++)
 	{
 		$ul = $("<ul>").attr("class", "options");
