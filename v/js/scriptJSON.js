@@ -26,7 +26,7 @@ $(function(){
 			boucleFor(data["tabCategories"],"option",$("form.ajouterLTshirt select[name=categorie]"),"cat_nom","cat_id");
 			
 			// "fonctionUtile.js", crée les icones sur chaque li
-			lesIcones($("section#tshirt ul.lTshirt li"));
+			setTimeout(lesIcones,50,$("section#tshirt ul.lTshirt li"));
 		}
 
 	);
@@ -49,6 +49,7 @@ $(function(){
 				boucleFor(data["tabCreateurs"],"option",$($selectCreateurs),"cre_nom","cre_id");
 				boucleFor(data["tabMatieres"],"option",$($selectMatieres),"mat_nom","mat_id");
 				boucleFor(data["tabCategories"],"option",$($selectCategories),"cat_nom","cat_id");
+				setTimeout(lesIcones,50,$("section#tshirt ul.lTshirt li"));
 			}
 		);
 	}
@@ -71,6 +72,7 @@ $(function(){
 				// fonction créée dans le fichier JS "fonctionUtile.js"
 				supprimerEnfant("section#tshirt ul.lTshirt");
 				boucleFor(data["tabNomsTshirt"],"li",$("section#tshirt ul.lTshirt"),"prod_nom","prod_id");
+				setTimeout(lesIcones,50,$("section#tshirt ul.lTshirt li"));
 			}
 		);
 	}
