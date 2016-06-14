@@ -63,7 +63,7 @@
 			break;
 
 		case "ajout":
-			$Tc->creerTshirt($_GET['nom'], $_GET['prix'], $_GET['img_gd'], $_GET['img_pt'], $_GET['desc'], $_GET['createur'], $_GET['matiere'], $_GET['date'], $_GET['categorie']);
+			$Tc->creerTshirt($_GET['nom'], $_GET['prix'], $_GET['img_gd'], $_GET['img_pt'], $_GET['desc'], $_GET['createur'], $_GET['matiere'], $_GET['date'], $_GET['categorie'])/*,$_GET['tailles']*/;
 			break;
 
 		case "affichage":
@@ -72,6 +72,7 @@
 
 		case "modification":
 			$Tc->modifierTshirt($_GET['nom'], $_GET['prix'], $_GET['img_gd'], $_GET['img_pt'], $_GET['desc'], $_GET['createur'], $_GET['matiere'], $_GET['date'], $_GET['categorie']);
+            /*$Tc->modifierTaille($_GET['tailles']);*/
 			break;
 
 		case "suppression":

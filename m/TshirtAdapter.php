@@ -104,7 +104,7 @@
 			return $this->listeRech;          
         }
         
-        public function creerTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$id,$taille,$stock)
+        public function creerTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$id/*,$taille,$stock*/)
         {
             /* insertion dans les produits */
             $sql = "INSERT INTO 
@@ -128,7 +128,7 @@
             /* ajout de la taille et du stock
                 -> insertion du t-shirt dans les exemplaires (stock par taille)*/
             /*Pour relier les deux tables, et ainsi créer les exemplaire, on doit récuperer l'Id du t-shirt -> lastInsertId()*/
-            $tshirtId = $this->pdo->lastInsertId();
+            /*$tshirtId = $this->pdo->lastInsertId();
             $sql2 ="
             INSERT INTO 
                 exemplaires
@@ -139,7 +139,7 @@
             VALUES
                 (NULL,:j,:k,:l)";
             $stmt2 = $this->pdo->prepare($sql2);
-            $stmt2->execute([":j"=>$id,":k"=>$stock,":l"=>$taille]);
+            $stmt2->execute([":j"=>$id,":k"=>$stock,":l"=>$taille]);*/
 
             /* id déjà créé au dessus ? */
             /* lorsqu'on crée un t-shirt, on crée plusieurs exemplaires de celui-ci (1 par taille)*/
@@ -173,11 +173,16 @@
                 exem_stock,
                 tail_nom
             FROM produits
-            JOIN createurs ON prod_fk_createur = cre_id
-            JOIN matieres ON mat_id = prod_fk_matiere
-            JOIN categories ON cat_id = prod_fk_categorie
-            JOIN exemplaires ON exem_fk_tee = prod_id 
-            JOIN tailles ON tail_id = exem_fk_tail 
+            JOIN createurs 
+                ON prod_fk_createur = cre_id
+            JOIN matieres 
+                ON mat_id = prod_fk_matiere
+            JOIN categories 
+                ON cat_id = prod_fk_categorie
+            LEFT JOIN exemplaires 
+                ON exem_fk_tee = prod_id 
+            LEFT JOIN tailles 
+                ON tail_id = exem_fk_tail 
             WHERE prod_id=:a   
             ";
             $stmt = $this->pdo->prepare($sql);
@@ -186,7 +191,7 @@
 			return $this->afficherTshirt;
         }
         
-        public function modifierTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$id,$taille,$stock)
+        public function modifierTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$id)
         {
             $sql = "UPDATE
                 produits
@@ -205,8 +210,10 @@
             ";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie,":j"=>$id]);
-            
-            $sql2 = "
+        }
+        
+        /*public function modifierTaille($taille,$stock,$id) {
+             $sql = "
                 UPDATE
                     exemplaires
                 SET 
@@ -215,10 +222,9 @@
                 WHERE 
                     exem_fk_tee=:m        
             ";
-            $stmt2 = $this->pdo->prepare($sql2);
-            $stmt2->execute([":k"=>$taille,":l"=>$stock,":m"=>$id]);
-            /* id ? */
-        }
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([":k"=>$taille,":l"=>$stock,":m"=>$id]);
+        }*/
         
         public function supprimerTshirt($id) 
         {
@@ -230,13 +236,13 @@
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":a"=>$id]);
             
-            $sql2 = "
+            /*$sql2 = "
                 DELETE 
                 FROM exemplaires 
                 WHERE exem_fk_tee=:b
             ";
             $stmt2 = $this->pdo->prepare($sql2);
-            $stmt2->execute([":b"=>$id]);
+            $stmt2->execute([":b"=>$id]);*/
             /* id ? */
         }
 	}
