@@ -128,7 +128,7 @@
             /* ajout de la taille et du stock
                 -> insertion du t-shirt dans les exemplaires (stock par taille)*/
             /*Pour relier les deux tables, et ainsi créer les exemplaire, on doit récuperer l'Id du t-shirt -> lastInsertId()*/
-            /*$tshirtId = $this->pdo->lastInsertId();
+            $tshirtId = $this->pdo->lastInsertId();
             $sql2 ="
             INSERT INTO 
                 exemplaires
@@ -137,9 +137,9 @@
                 exem_stock,
                 exem_fk_tail)
             VALUES
-                (NULL,:j,:k,:l)";
+                (NULL,LAST_INSERT_ID(),:k,:l)";
             $stmt2 = $this->pdo->prepare($sql2);
-            $stmt2->execute([":j"=>$id,":k"=>$stock,":l"=>$taille]);*/
+            $stmt2->execute([":j"=>$id,":k"=>$stock,":l"=>$taille]);
 
             /* id déjà créé au dessus ? */
             /* lorsqu'on crée un t-shirt, on crée plusieurs exemplaires de celui-ci (1 par taille)*/
@@ -173,11 +173,11 @@
                 exem_stock,
                 tail_nom
             FROM produits
-            JOIN createurs 
+            LEFT JOIN createurs 
                 ON prod_fk_createur = cre_id
-            JOIN matieres 
+            LEFT JOIN matieres 
                 ON mat_id = prod_fk_matiere
-            JOIN categories 
+            LEFT JOIN categories 
                 ON cat_id = prod_fk_categorie
             LEFT JOIN exemplaires 
                 ON exem_fk_tee = prod_id 
