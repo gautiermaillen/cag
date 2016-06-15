@@ -64,10 +64,10 @@
 			return $lr;
 		}
 
-		public function creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie /*,$tailles/**/)
+		public function creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie)
 		{
 			$Ta = new TshirtAdapter($this->Connec);
-			$ct = $Ta->creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie /*,$tailles/**/);
+			$ct = $Ta->creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie);
 
 			return $ct;
 		}
@@ -87,14 +87,6 @@
 
 			return $mt;
 		}
-        
-        /*public function modifierTaille($taille,$stock,$id)
-        {
-            $Ta = new TshirtAdapter($this->Connec);
-            foreach ($Ta as $key => $value) {
-                $Ta->modifierTaille($taille,$stock,$id)
-            }
-        }*/
 
 		public function supprimerTshirt($id)
 		{

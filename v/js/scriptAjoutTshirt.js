@@ -55,10 +55,10 @@ $(function(){
 			for (var i = 0; i < $("form.ajouterLTshirt section#stock p").length; i++){
 				$tabTailles[$tabTailles.length] = 
 					[
-						// Valeur = Stock
-						$("form.ajouterLTshirt section#stock p:nth-child("+(i+2)+") input").val(),
 						// Attribute = Taille
-						$("form.ajouterLTshirt section#stock p:nth-child("+(i+2)+") input").attr("name")
+						$("form.ajouterLTshirt section#stock p:nth-child("+(i+2)+") input").attr("name"),
+						// Valeur = Stock
+						$("form.ajouterLTshirt section#stock p:nth-child("+(i+2)+") input").val()
 					];
 			}
 
