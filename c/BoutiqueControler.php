@@ -88,22 +88,21 @@
 			return $at;
 		}
 
-		public function modifierTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie)
+		public function modifierTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie, $id)
 		{
 			$Ta = new TshirtAdapter($this->Connec);
-			$mt = $Ta->modifierTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie);
+			$mt = $Ta->modifierTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie, $id);
 
 			return $mt;
 		}
 
-        /* Ajout Alizée */
-        /*public function modifierTaille($taille,$stock,$id)
+        public function modifierTailles($tailles,$stock,$id)
         {
             $Ta = new TshirtAdapter($this->Connec);
             foreach ($Ta as $key => $value) {
-                $Ta->modifierTaille($taille,$stock,$id)
+                $Ta->modifierTaille($tailles)
             }
-        }*/
+        }
 
 		public function supprimerTshirt($id)
 		{
