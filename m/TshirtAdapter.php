@@ -261,14 +261,13 @@
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":a"=>$id]);
             
-            /*$sql2 = "
+            $sql2 = "
                 DELETE 
-                FROM exemplaires 
+                FROM exemplaire
                 WHERE exem_fk_tee=:b
             ";
             $stmt2 = $this->pdo->prepare($sql2);
-            $stmt2->execute([":b"=>$id]);*/
-            /* id ? */
+            $stmt2->execute([":b"=>$id]);
         }
 	}
 
