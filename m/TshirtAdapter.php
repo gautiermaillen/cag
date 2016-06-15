@@ -222,7 +222,7 @@
             $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie,":j"=>$id]);
             
             /* modifications table exemplaires */
-            $sql2 = "
+/*            $sql2 = "
                 UPDATE
                     exemplaires
                 SET 
@@ -232,10 +232,10 @@
                     exem_fk_tee=:m        
             ";
             $stmt2 = $this->pdo->prepare($sql);
-            $stmt2->execute([":k"=>$taille,":l"=>$stock,":m"=>$id]);
+            $stmt2->execute([":k"=>$taille,":l"=>$stock,":m"=>$id]);*/
         }
         
-        /*public function modifierTaille($taille,$stock,$id) {
+        public function modifierTaille($taille,$stock,$id) {
              $sql = "
                 UPDATE
                     exemplaires
@@ -247,7 +247,7 @@
             ";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":k"=>$taille,":l"=>$stock,":m"=>$id]);
-        }*/
+        }
         
         public function supprimerTshirt($id) 
         {
