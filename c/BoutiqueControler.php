@@ -95,6 +95,7 @@
 
 			return $mt;
 		}
+<<<<<<< HEAD
 
         /* Ajout Alizée */
         /*public function modifierTaille($taille,$stock,$id)
@@ -104,6 +105,8 @@
                 $Ta->modifierTaille($taille,$stock,$id)
             }
         }*/
+=======
+>>>>>>> origin/master
 
 		public function supprimerTshirt($id)
 		{

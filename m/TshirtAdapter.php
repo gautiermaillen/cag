@@ -108,21 +108,22 @@
         public function creerTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$taille,$stock,$id,$bool)
         {
             if ($bool) {
-               $sql = "INSERT INTO 
-                produits
-                (prod_id,
-                prod_nom,
-                prod_prix,
-                prod_img_gd,
-                prod_img_pt,
-                prod_desc,
-                prod_fk_createur,
-                prod_fk_matiere,
-                prod_date,
-                prod_fk_categorie) 
-            VALUES
-                (NULL,:a,:b,:c,:d,:e,:f,:g,:h,:i)
-            ";
+               $sql = "
+                INSERT INTO 
+                    produits
+                        (prod_id,
+                        prod_nom,
+                        prod_prix,
+                        prod_img_gd,
+                        prod_img_pt,
+                        prod_desc,
+                        prod_fk_createur,
+                        prod_fk_matiere,
+                        prod_date,
+                        prod_fk_categorie) 
+                VALUES
+                    (NULL,:a,:b,:c,:d,:e,:f,:g,:h,:i)
+                ";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie]); 
                 
@@ -162,28 +163,13 @@
             /* ajout de la taille et du stock
                 -> insertion du t-shirt dans les exemplaires (stock par taille)*/
             /*Pour relier les deux tables, et ainsi créer les exemplaire, on doit récuperer l'Id du t-shirt -> lastInsertId()*/
-            
-
-            /* id déjà créé au dessus ? */
             /* lorsqu'on crée un t-shirt, on crée plusieurs exemplaires de celui-ci (1 par taille)*/
         }
         
-        /* MIEUX ????
-        INSERT INTO 
-            exemplaires         
-                (exem_id
-                exem_fk_tee,
-                exem_fk_tail,
-                exem_stock) 
-        VALUES 
-            (NULL, 44, (SELECT tail_id FROM tailles WHERE tail_nom = "S"), 200),
-            (NULL, 44, (SELECT tail_id FROM tailles WHERE tail_nom = "M"), 21),
-            (NULL, 44, (SELECT tail_id FROM tailles WHERE tail_nom = "L"), 12),
-            (NULL, 44, (SELECT tail_id FROM tailles WHERE tail_nom = "XL"), 56)*/
-        
         public function afficherTshirt($id) 
         {
-            $sql = "SELECT
+            $sql = "
+            SELECT
                 prod_nom,
                 prod_prix,
                 prod_img_gd,
@@ -216,6 +202,7 @@
         
         public function modifierTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$id)
         {
+            /* modifications table produits*/
             $sql = "UPDATE
                 produits
             SET
@@ -233,6 +220,19 @@
             ";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie,":j"=>$id]);
+            
+            /* modifications table exemplaires */
+            $sql2 = "
+                UPDATE
+                    exemplaires
+                SET 
+                    exem_fk_tail=:k,
+                    exem_stock=:l
+                WHERE 
+                    exem_fk_tee=:m        
+            ";
+            $stmt2 = $this->pdo->prepare($sql);
+            $stmt2->execute([":k"=>$taille,":l"=>$stock,":m"=>$id]);
         }
         
         /*public function modifierTaille($taille,$stock,$id) {
