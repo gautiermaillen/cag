@@ -64,12 +64,20 @@
 			return $lr;
 		}
 
-		public function creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie /*,$tailles/**/)
+		public function creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie,$tailles)
 		{
-			$Ta = new TshirtAdapter($this->Connec);
-			$ct = $Ta->creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie /*,$tailles/**/);
-
-			return $ct;
+			$taille = "";
+            $stock = "";
+            $lID = "";
+            $Ta = new TshirtAdapter($this->Connec);
+			$lID = $Ta->creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie,$taille,$stock,$lID,true);
+            
+            foreach ($tailles as $key => $value){
+                $taille = $tailles[$key][1];
+                $stock = $tailles[$key][0];
+                $tb = new TshirtAdapter($this->Connec);
+                $tb->creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie,$taille,$stock,$lID,false);    
+            }
 		}
 
 		public function afficherTshirt($id)
@@ -88,6 +96,7 @@
 			return $mt;
 		}
         
+        /* Ajout Alizée */
         /*public function modifierTaille($taille,$stock,$id)
         {
             $Ta = new TshirtAdapter($this->Connec);
