@@ -37,7 +37,11 @@
             $sql = "SELECT 
                     cre_id,
                     cre_nom 
-                FROM createurs";
+                FROM createurs
+                WHERE 0>
+                    (SELECT COUNT(prod_nom) 
+                    FROM produits 
+                    WHERE createurs.cre_id=prod_fk_createur)";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
             $this->listeCreateurs = $stmt->fetchAll(PDO::FETCH_CLASS, "Tshirt");
