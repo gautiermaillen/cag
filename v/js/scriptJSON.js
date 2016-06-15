@@ -70,8 +70,8 @@ $(function(){
 				}
 				else{
 					$("<li>Aucun t-shirt disponible</option>").appendTo($("section#tshirt ul.lTshirt"));
-					$("<option>Aucune</option>").appendTo($($selectMatieres));
-					$("<option>Aucune</option>").appendTo($($selectCategories));
+					boucleFor(grandTableau["tabMatieres"],"option",$($selectMatieres),"mat_nom","mat_id");
+					boucleFor(grandTableau["tabCategories"],"option",$($selectCategories),"cat_nom","cat_id");
 				}
 			}
 		);
