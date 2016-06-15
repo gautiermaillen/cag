@@ -262,10 +262,6 @@
             $stmt2 = $this->pdo->prepare($sql2);
             $stmt2->execute([":a"=>$taille]);
             $selectTaille = $stmt2->fetchColumn();
-<<<<<<< HEAD
-=======
-            // var_dump($selectTaille);
->>>>>>> origin/master
             
             $sql = "
                 UPDATE
