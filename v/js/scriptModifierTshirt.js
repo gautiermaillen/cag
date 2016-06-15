@@ -14,7 +14,6 @@ $(function(){
 					$("form.modification section#stock p:nth-child("+(i+1)+") input").val()
 				];
 		}
-		console.log($tabTailles);
 
 		$leLIparent = $(this).parent().parent().attr("data-id");
 		$.getJSON(
