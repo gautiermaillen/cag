@@ -3,6 +3,19 @@ $(function(){
 	$("ul.lTshirt").on("click","li[name=modifier]",afficheModifierTshirt);
 
 	function modifierTshirt(){
+		// Crée le tableau de toutes les tailles et de leurs stocks respectifs
+		$tabTailles = [];
+		for (var i = 0; i < $("form.modification section#stock p").length; i++){
+			$tabTailles[$tabTailles.length] = 
+				[
+					// Attribute = Taille
+					$("form.modification section#stock p:nth-child("+(i+1)+") input").attr("name"),
+					// Valeur = Stock
+					$("form.modification section#stock p:nth-child("+(i+1)+") input").val()
+				];
+		}
+		console.log($tabTailles);
+
 		$leLIparent = $(this).parent().parent().attr("data-id");
 		$.getJSON(
 			"dispatcher.php",
@@ -15,7 +28,8 @@ $(function(){
 				desc : 		$("li[data-id="+$leLIparent+"] input[name=desc]").val(),
 				createur : 	$("li[data-id="+$leLIparent+"] select[name=createur] option:selected").text(),
 				matiere : 	$("li[data-id="+$leLIparent+"] select[name=matiere] option:selected").text(),
-				categorie : $("li[data-id="+$leLIparent+"] select[name=categorie] option:selected").text()
+				categorie : $("li[data-id="+$leLIparent+"] select[name=categorie] option:selected").text(),
+				tailles : 	$tabTailles
 			}
 		);
 	}

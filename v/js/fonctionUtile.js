@@ -51,10 +51,10 @@ $(function() {
 function formulaireModif($tshirt,$element,$tail){
 	$tail = ($tail == undefined)?false:true;
 	if ($tail){
-		$($element).children("form").children("fieldset").append("<p><label>"+$tshirt["tail_nom"]+"</label><input type='text' value='"+$tshirt["exem_stock"]+"'></p></section>");
+		$($element).children("form").children("fieldset").children("#stock").append("<p><label>"+$tshirt["tail_nom"]+"</label><input type='text' name='"+$tshirt["tail_nom"]+"' value='"+$tshirt["exem_stock"]+"'></p>");
 	}
 	else{
-		$($element).append("<form><fieldset><legend>"+$tshirt["prod_nom"]+"</legend><p><label>Nom : </label><input type='text' name='nom' value='"+$tshirt["prod_nom"]+"'></p><p><label>Prix : </label><input type='text' name='prix' value='"+$tshirt["prod_prix"]+"'></p><p><label>Date : </label><input type='text' name='date' value='"+$tshirt["prod_date"]+"'></p><p><label>Description : </label><textarea name='desc'>"+$tshirt["prod_desc"]+"</textarea></p><p><label>Créateur : </label><select name='createur'><option>"+$tshirt["cre_nom"]+"</option></select></p><p><label>Matière : </label><select name='matiere'><option>"+$tshirt["mat_nom"]+"</option></select></p><p><label>Catégorie : </label><select name='categorie'><option>"+$tshirt["cat_nom"]+"</option></select></p><p><input type='button' id='modifier' value='Modifier'></p><section></fieldset></form>");
+		$($element).append("<form class='modification'><fieldset><legend>"+$tshirt["prod_nom"]+"</legend><p><label>Nom : </label><input type='text' name='nom' value='"+$tshirt["prod_nom"]+"'></p><p><label>Prix : </label><input type='text' name='prix' value='"+$tshirt["prod_prix"]+"'></p><p><label>Date : </label><input type='text' name='date' value='"+$tshirt["prod_date"]+"'></p><p><label>Description : </label><textarea name='desc'>"+$tshirt["prod_desc"]+"</textarea></p><p><label>Créateur : </label><select name='createur'><option>"+$tshirt["cre_nom"]+"</option></select></p><p><label>Matière : </label><select name='matiere'><option>"+$tshirt["mat_nom"]+"</option></select></p><p><label>Catégorie : </label><select name='categorie'><option>"+$tshirt["cat_nom"]+"</option></select></p><section id='stock'></section><p><input type='button' id='modifier' value='Modifier'></p></fieldset></form>");
 	}
 	
 }
