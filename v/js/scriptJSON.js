@@ -47,11 +47,29 @@ $(function(){
 			function(data){
 				// fonction créée dans le fichier JS "fonctionUtile.js"
 				supprimerEnfant("section#tshirt ul.lTshirt");
-				boucleFor(data["tabNomsTshirt"],"li",$("section#tshirt ul.lTshirt"),"prod_nom","prod_id");
-				// boucleFor(data["tabCreateurs"],"option",$($selectCreateurs),"cre_nom","cre_id");
-				// boucleFor(data["tabNomsTshirt"]["mat_nom"],"option",$($selectMatieres),"mat_nom","mat_id");
-				// boucleFor(data["tabCategories"],"option",$($selectCategories),"cat_nom","cat_id");
-				setTimeout(lesIcones,10,$("section#tshirt ul.lTshirt li"));
+				supprimerEnfant($selectMatieres);
+				supprimerEnfant($selectCategories);
+				
+				if (data["tabNomsTshirt"].length != 0){
+					boucleFor(data["tabNomsTshirt"],"li",$("section#tshirt ul.lTshirt"),"prod_nom","prod_id");
+					var j=1, k=1;
+					for (var i = 0; i < data["tabNomsTshirt"].length; i++){
+						if (i == 0 || data["tabNomsTshirt"][i]["mat_nom"] != data["tabNomsTshirt"][i-1]["mat_nom"]){
+							j--;
+							$("<option data-id='mat_id'>"+data["tabNomsTshirt"][i]["mat_nom"]+"</option>").appendTo($($selectMatieres));
+						}
+						if (i == 0 || data["tabNomsTshirt"][i]["cat_nom"] != data["tabNomsTshirt"][i-1]["cat_nom"]){
+							k--;
+							$("<option data-id='cat_id'>"+data["tabNomsTshirt"][i]["cat_nom"]+"</option>").appendTo($($selectCategories));
+						}
+					}
+					setTimeout(lesIcones,10,$("section#tshirt ul.lTshirt li"));
+				}
+				else{
+					$("<li>Aucun t-shirt disponible</option>").appendTo($("section#tshirt ul.lTshirt"));
+					$("<option>Aucune</option>").appendTo($($selectMatieres));
+					$("<option>Aucune</option>").appendTo($($selectCategories));
+				}
 			}
 		);
 	}
