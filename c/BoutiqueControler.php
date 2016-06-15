@@ -96,11 +96,11 @@
 			return $mt;
 		}
 
-        public function modifierTailles($tailles,$stock,$id)
+        public function modifierTailles($tailles)
         {
             $Ta = new TshirtAdapter($this->Connec);
             foreach ($Ta as $key => $value) {
-                $Ta->modifierTaille($tailles)
+                $Ta->modifierTaille($tailles);
             }
         }
 
