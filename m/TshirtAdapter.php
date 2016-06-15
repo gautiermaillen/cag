@@ -146,8 +146,8 @@
                 $stmt3->execute([":j"=>$taille]);
                 //$stmt3->fetch();
                 $selectTaille = $stmt3->fetchColumn();
-                /*var_dump("Select".$selectTaille);
-                var_dump("Stock".$stock);*/
+                var_dump("Select : ".$selectTaille);
+                var_dump("Stock : ".$stock);
                 
                 $sql2 ="
                     INSERT INTO 
