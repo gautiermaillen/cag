@@ -87,7 +87,13 @@
 				JOIN categories ON cat_id = prod_fk_categorie
 				JOIN exemplaires ON exem_fk_tee = prod_id
 				JOIN tailles ON exem_fk_tail = tail_id
-                WHERE cre_nom=:a AND mat_nom=:b AND cat_nom=:c";
+                WHERE 
+                    cre_nom LIKE :a 
+                        AND 
+                    mat_nom LIKE :b 
+                        AND 
+                    cat_nom LIKE :c
+                ";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([':a'=>$cre_nom,':b'=>$mat_nom,':c'=>$cat_nom]);
             $this->listeTriee = $stmt->fetchAll(PDO::FETCH_CLASS, "Tshirt");
@@ -181,8 +187,11 @@
                 prod_desc,
                 prod_date,
                 cre_nom,
+                cre_id,
                 cat_nom,
+                cat_id,
                 mat_nom,
+                mat_id,
                 exem_stock,
                 tail_nom
             FROM produits
@@ -243,18 +252,18 @@
             var_dump("taille : ".$taille);
             var_dump("stock : ".$stock);
             
-                $sql2 ="
-                    SELECT 
-                        tail_id
-                    FROM
-                        tailles
-                    WHERE tail_nom = :a
-                ";
-                $stmt2 = $this->pdo->prepare($sql2);
-                $stmt2->execute([":a"=>$taille]);
-                $selectTaille = $stmt2->fetchColumn();
+            $sql2 ="
+                SELECT 
+                    tail_id
+                FROM
+                    tailles
+                WHERE tail_nom = :a
+            ";
+            $stmt2 = $this->pdo->prepare($sql2);
+            $stmt2->execute([":a"=>$taille]);
+            $selectTaille = $stmt2->fetchColumn();
             
-             $sql = "
+            $sql = "
                 UPDATE
                     exemplaires
                 SET 
