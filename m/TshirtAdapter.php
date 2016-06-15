@@ -200,7 +200,7 @@
 			return $this->afficherTshirt;
         }
         
-        public function modifierTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$id)
+        public function modifierTshirt($nom,$prix,/*$img_gd,$img_pt,*/$desc,$createur,$matiere,$date,$categorie,$id)
         {
             /* modifications table produits*/
             $sql = "UPDATE
@@ -208,8 +208,6 @@
             SET
                 prod_nom=:a,
                 prod_prix=:b,
-                prod_img_gd=:c,
-                prod_img_pt=:d,
                 prod_desc=:e,
                 prod_fk_createur=:f,
                 prod_fk_matiere=:g,
@@ -219,7 +217,7 @@
                 prod_id=:j
             ";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie,":j"=>$id]);
+            $stmt->execute([":a"=>$nom,":b"=>$prix,/*":c"=>$img_gd,":d"=>$img_pt,*/":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie,":j"=>$id]);
             
             /* modifications table exemplaires */
 /*            $sql2 = "
@@ -235,7 +233,7 @@
             $stmt2->execute([":k"=>$taille,":l"=>$stock,":m"=>$id]);*/
         }
         
-        public function modifierTaille($taille,$stock,$id) {
+        public function modifierTailles($taille,$stock,$id) {
              $sql = "
                 UPDATE
                     exemplaires
