@@ -15,7 +15,7 @@ $(function(){
 				];
 		}
 
-		$leLIparent = $(this).parent().parent().attr("data-id");
+		$leLIparent = $(this).parent().parent().parent().parent().attr("data-id");
 		$.getJSON(
 			"dispatcher.php",
 			{
