@@ -64,12 +64,29 @@
 			return $lr;
 		}
 
+<<<<<<< HEAD
 		public function creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie)
 		{
 			$Ta = new TshirtAdapter($this->Connec);
 			$ct = $Ta->creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie);
 
 			return $ct;
+=======
+		public function creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie,$tailles)
+		{
+			$taille = "";
+            $stock = "";
+            $lID = "";
+            $Ta = new TshirtAdapter($this->Connec);
+			$lID = $Ta->creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie,$taille,$stock,$lID,true);
+            
+            foreach ($tailles as $key => $value){
+                $taille = $tailles[$key][1];
+                $stock = $tailles[$key][0];
+                $tb = new TshirtAdapter($this->Connec);
+                $tb->creerTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie,$taille,$stock,$lID,false);    
+            }
+>>>>>>> origin/master
 		}
 
 		public function afficherTshirt($id)
@@ -87,6 +104,18 @@
 
 			return $mt;
 		}
+<<<<<<< HEAD
+=======
+        
+        /* Ajout Alizée */
+        /*public function modifierTaille($taille,$stock,$id)
+        {
+            $Ta = new TshirtAdapter($this->Connec);
+            foreach ($Ta as $key => $value) {
+                $Ta->modifierTaille($taille,$stock,$id)
+            }
+        }*/
+>>>>>>> origin/master
 
 		public function supprimerTshirt($id)
 		{

@@ -13,6 +13,7 @@
         private $ajouterTshirt=[];
         private $afficherTshirt=[];
 		private $pdo;
+        private $tshirtId;
 
 		public function __construct(PDO $pdo)
 		{
@@ -104,11 +105,11 @@
 			return $this->listeRech;          
         }
         
-        public function creerTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$id/*,$taille,$stock*/)
+        public function creerTshirt($nom,$prix,$img_gd,$img_pt,$desc,$createur,$matiere,$date,$categorie,$taille,$stock,$id,$bool)
         {
-            /* insertion dans les produits */
-            $sql = "INSERT INTO 
-            produits
+            if ($bool) {
+               $sql = "INSERT INTO 
+                produits
                 (prod_id,
                 prod_nom,
                 prod_prix,
@@ -123,23 +124,45 @@
                 (NULL,:a,:b,:c,:d,:e,:f,:g,:h,:i)
             ";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie]);
+            $stmt->execute([":a"=>$nom,":b"=>$prix,":c"=>$img_gd,":d"=>$img_pt,":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie]); 
+                
+            return $this->pdo->lastInsertId();
+                
+            } else {
+                
+                $sql3 ="
+                    SELECT 
+                        tail_id
+                    FROM
+                        tailles
+                    WHERE tail_nom = :j
+                ";
+                $stmt3 = $this->pdo->prepare($sql3);
+                $stmt3->execute([":j"=>$taille]);
+                //$stmt3->fetch();
+                $selectTaille = $stmt3->fetchColumn();
+                /*var_dump("Select".$selectTaille);
+                var_dump("Stock".$stock);*/
+                
+                $sql2 ="
+                    INSERT INTO 
+                        exemplaires
+                            (exem_id,
+                            exem_fk_tee,
+                            exem_stock,
+                            exem_fk_tail)
+                    VALUES
+                        (NULL,:k,:l,:m)";
+                $stmt2 = $this->pdo->prepare($sql2);
+                $stmt2->execute([':k'=>$id, ':l'=>$stock,':m'=>$selectTaille]);
+            }
+            /* insertion dans les produits */
+            
             
             /* ajout de la taille et du stock
                 -> insertion du t-shirt dans les exemplaires (stock par taille)*/
             /*Pour relier les deux tables, et ainsi créer les exemplaire, on doit récuperer l'Id du t-shirt -> lastInsertId()*/
-            $tshirtId = $this->pdo->lastInsertId();
-            $sql2 ="
-            INSERT INTO 
-                exemplaires
-                (exem_id,
-                exem_fk_tee,
-                exem_stock,
-                exem_fk_tail)
-            VALUES
-                (NULL,LAST_INSERT_ID(),:k,:l)";
-            $stmt2 = $this->pdo->prepare($sql2);
-            $stmt2->execute([":j"=>$id,":k"=>$stock,":l"=>$taille]);
+            
 
             /* id déjà créé au dessus ? */
             /* lorsqu'on crée un t-shirt, on crée plusieurs exemplaires de celui-ci (1 par taille)*/
