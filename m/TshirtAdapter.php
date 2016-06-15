@@ -220,6 +220,7 @@
             WHERE
                 prod_id=:j
             ";
+            var_dump($createur);
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([":a"=>$nom,":b"=>$prix,/*":c"=>$img_gd,":d"=>$img_pt,*/":e"=>$desc,":f"=>$createur,":g"=>$matiere,":h"=>$date,":i"=>$categorie,":j"=>$id]);
             
@@ -237,7 +238,10 @@
             $stmt2->execute([":k"=>$taille,":l"=>$stock,":m"=>$id]);*/
         }
         
-        public function modifierTailles($taille,$stock,$id) {
+        public function modifierTailles($id, $taille, $stock)
+        {
+            var_dump("taille : ".$taille);
+            var_dump("stock : ".$stock);
              $sql = "
                 UPDATE
                     exemplaires
