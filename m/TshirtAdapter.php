@@ -38,9 +38,9 @@
                     cre_id,
                     cre_nom 
                 FROM createurs
-                WHERE 0>
+                WHERE 0<
                     (SELECT COUNT(prod_nom) 
-                    FROM produits 
+                    FROM produits, createurs
                     WHERE createurs.cre_id=prod_fk_createur)";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();

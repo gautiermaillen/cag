@@ -52,14 +52,11 @@ $(function(){
 				
 				if (data["tabNomsTshirt"].length != 0){
 					boucleFor(data["tabNomsTshirt"],"li",$("section#tshirt ul.lTshirt"),"prod_nom","prod_id");
-					var j=1, k=1;
 					for (var i = 0; i < data["tabNomsTshirt"].length; i++){
 						if (i == 0 || data["tabNomsTshirt"][i]["mat_nom"] != data["tabNomsTshirt"][i-1]["mat_nom"]){
-							j--;
 							$("<option data-id='mat_id'>"+data["tabNomsTshirt"][i]["mat_nom"]+"</option>").appendTo($($selectMatieres));
 						}
 						if (i == 0 || data["tabNomsTshirt"][i]["cat_nom"] != data["tabNomsTshirt"][i-1]["cat_nom"]){
-							k--;
 							$("<option data-id='cat_id'>"+data["tabNomsTshirt"][i]["cat_nom"]+"</option>").appendTo($($selectCategories));
 						}
 					}
