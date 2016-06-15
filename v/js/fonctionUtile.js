@@ -30,6 +30,7 @@ function supprimerEnfant($parent){
 // Création du formulaire d'affichage du t-shirt sélectionné 
 function formulaire($tshirt,$element,$tail){
 	$tail = ($tail == undefined)?false:true;
+	// On affiche que les tailles existantes avec du stock
 	if ($tail){
 		if ($tshirt["exem_stock"] != 0){
 			$($element).children("form").children("fieldset").append("<p>"+$tshirt["tail_nom"]+" : "+$tshirt["exem_stock"]+"</p>");
