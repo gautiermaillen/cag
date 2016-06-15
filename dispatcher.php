@@ -71,8 +71,9 @@
 			break;
 
 		case "modification":
-			$Tc->modifierTshirt($_GET['nom'], $_GET['prix'], $_GET['img_gd'], $_GET['img_pt'], $_GET['desc'], $_GET['createur'], $_GET['matiere'], $_GET['date'], $_GET['categorie'], $_GET['id']);
+			$Tc->modifierTshirt($_GET['nom'], $_GET['prix'], $_GET['desc'], $_GET['createur'], $_GET['matiere'], $_GET['date'], $_GET['categorie'], $_GET['id']);
             $Tc->modifierTailles($_GET['tailles']);
+            // $_GET['img_gd'], $_GET['img_pt']
 			break;
 
 		case "suppression":

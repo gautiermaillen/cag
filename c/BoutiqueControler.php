@@ -88,10 +88,10 @@
 			return $at;
 		}
 
-		public function modifierTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie, $id)
+		public function modifierTshirt($nom, $prix, $desc, $createur, $matiere, $date, $categorie, $id)
 		{
 			$Ta = new TshirtAdapter($this->Connec);
-			$mt = $Ta->modifierTshirt($nom, $prix, $img_gd, $img_pt, $desc, $createur, $matiere, $date, $categorie, $id);
+			$mt = $Ta->modifierTshirt($nom, $prix, $desc, $createur, $matiere, $date, $categorie, $id);
 
 			return $mt;
 		}
