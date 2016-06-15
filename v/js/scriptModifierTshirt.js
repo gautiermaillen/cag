@@ -24,7 +24,7 @@ $(function(){
 				nom : 		$("li[data-id="+$leLIparent+"] input[name=nom]").val(),
 				prix : 		$("li[data-id="+$leLIparent+"] input[name=prix]").val(),
 				date : 		$("li[data-id="+$leLIparent+"] input[name=date]").val(),
-				desc : 		$("li[data-id="+$leLIparent+"] input[name=desc]").val(),
+				desc : 		$("li[data-id="+$leLIparent+"] textarea[name=desc]").val(),
 				createur : 	$("li[data-id="+$leLIparent+"] select[name=createur] option:selected").text(),
 				matiere : 	$("li[data-id="+$leLIparent+"] select[name=matiere] option:selected").text(),
 				categorie : $("li[data-id="+$leLIparent+"] select[name=categorie] option:selected").text(),

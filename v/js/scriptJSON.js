@@ -49,7 +49,7 @@ $(function(){
 				supprimerEnfant("section#tshirt ul.lTshirt");
 				boucleFor(data["tabNomsTshirt"],"li",$("section#tshirt ul.lTshirt"),"prod_nom","prod_id");
 				// boucleFor(data["tabCreateurs"],"option",$($selectCreateurs),"cre_nom","cre_id");
-				// boucleFor(data["tabNomsTshirt"],"option",$($selectMatieres),"mat_nom","mat_id");
+				// boucleFor(data["tabNomsTshirt"]["mat_nom"],"option",$($selectMatieres),"mat_nom","mat_id");
 				// boucleFor(data["tabCategories"],"option",$($selectCategories),"cat_nom","cat_id");
 				setTimeout(lesIcones,10,$("section#tshirt ul.lTshirt li"));
 			}
