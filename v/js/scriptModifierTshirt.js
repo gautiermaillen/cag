@@ -25,9 +25,9 @@ $(function(){
 				prix : 		$("li[data-id="+$leLIparent+"] input[name=prix]").val(),
 				date : 		$("li[data-id="+$leLIparent+"] input[name=date]").val(),
 				desc : 		$("li[data-id="+$leLIparent+"] textarea[name=desc]").val(),
-				createur : 	$("li[data-id="+$leLIparent+"] select[name=createur] option:selected").text(),
-				matiere : 	$("li[data-id="+$leLIparent+"] select[name=matiere] option:selected").text(),
-				categorie : $("li[data-id="+$leLIparent+"] select[name=categorie] option:selected").text(),
+				createur : 	$("li[data-id="+$leLIparent+"] select[name=createur] option:selected").attr("data-id"),
+				matiere : 	$("li[data-id="+$leLIparent+"] select[name=matiere] option:selected").attr("data-id"),
+				categorie : $("li[data-id="+$leLIparent+"] select[name=categorie] option:selected").attr("data-id"),
 				tailles : 	$tabTailles
 			}
 		);
