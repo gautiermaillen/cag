@@ -46,6 +46,7 @@ $(function(){
 				function(data){
 					// Voir dans fonctionUtile.js
 					formulaireModif(data[0],$leLI);
+					console.log(data);
 					for (var i = 0; i < data.length; i++){
 						formulaireModif(data[i],$leLI,"tailles");
 					}

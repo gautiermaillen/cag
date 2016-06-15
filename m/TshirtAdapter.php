@@ -181,8 +181,11 @@
                 prod_desc,
                 prod_date,
                 cre_nom,
+                cre_id,
                 cat_nom,
+                cat_id,
                 mat_nom,
+                mat_id,
                 exem_stock,
                 tail_nom
             FROM produits
