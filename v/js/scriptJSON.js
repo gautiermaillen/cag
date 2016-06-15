@@ -40,38 +40,28 @@ $(function(){
 			"dispatcher.php",
 			{
 				operation : "tri",
-				createur : 	$($selectCreateurs+" option:selected").text(),
-				matiere : 	$($selectMatieres+" option:selected").text(),
-				categorie : $($selectCategories+" option:selected").text()
+				createur : 	$($selectCreateurs+" option:selected").attr('name'),
+				matiere : 	$($selectMatieres+" option:selected").attr('name'),
+				categorie : $($selectCategories+" option:selected").attr('name')
 			},
 			function(data){
 				// fonction créée dans le fichier JS "fonctionUtile.js"
 				supprimerEnfant("section#tshirt ul.lTshirt");
-				supprimerEnfant($selectMatieres);
-				supprimerEnfant($selectCategories);
+				$($selectMatieres+">option:nth-child(n+2)").remove();
+				$($selectCategories+">option:nth-child(n+2)").remove();
 				
 				if (data["tabNomsTshirt"].length != 0){
 					boucleFor(data["tabNomsTshirt"],"li",$("section#tshirt ul.lTshirt"),"prod_nom","prod_id");
 					for (var i = 0; i < data["tabNomsTshirt"].length; i++){
-						if (i > 0 && data["tabNomsTshirt"][i]["mat_nom"] != data["tabNomsTshirt"][i-1]["mat_nom"]){
-							$("<option data-id='mat_id'>"+data["tabNomsTshirt"][i]["mat_nom"]+"</option>").appendTo($($selectMatieres));
-						}
-						else{
-							$("<option data-id='mat_id'>"+data["tabNomsTshirt"][i]["mat_nom"]+"</option>").appendTo($($selectMatieres));
-						}
-						if (i > 0 && data["tabNomsTshirt"][i]["cat_nom"] != data["tabNomsTshirt"][i-1]["cat_nom"]){
-							$("<option data-id='cat_id'>"+data["tabNomsTshirt"][i]["cat_nom"]+"</option>").appendTo($($selectCategories));
-						}
-						else{
-							$("<option data-id='cat_id'>"+data["tabNomsTshirt"][i]["cat_nom"]+"</option>").appendTo($($selectCategories));
-						}
+						$("<option name='"+data["tabNomsTshirt"][i]["mat_nom"]+"'>"+data["tabNomsTshirt"][i]["mat_nom"]+"</option>").appendTo($($selectMatieres));
+						$("<option name='"+data["tabNomsTshirt"][i]["cat_nom"]+"'>"+data["tabNomsTshirt"][i]["cat_nom"]+"</option>").appendTo($($selectCategories));
 					}
 					setTimeout(lesIcones,10,$("section#tshirt ul.lTshirt li"));
 				}
 				else{
 					$("<li>Aucun t-shirt disponible</option>").appendTo($("section#tshirt ul.lTshirt"));
-					boucleFor(grandTableau["tabMatieres"],"option",$($selectMatieres),"mat_nom","mat_id");
-					boucleFor(grandTableau["tabCategories"],"option",$($selectCategories),"cat_nom","cat_id");
+					// boucleFor(grandTableau["tabMatieres"],"option",$($selectMatieres),"mat_nom","mat_id");
+					// boucleFor(grandTableau["tabCategories"],"option",$($selectCategories),"cat_nom","cat_id");
 				}
 			}
 		);

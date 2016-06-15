@@ -5,7 +5,7 @@
 	// $pourquoi : quel nom/valeur à reprendre dans le tableau JSON
 function boucleFor($tab,$quoi,$ou,$pourquoi,$id_pourquoi){
 	for (var i = 0; i < $tab.length; i++){
-		$("<"+$quoi+" data-id='"+$tab[i][$id_pourquoi]+"' "+">"+$tab[i][$pourquoi]+"</"+$quoi+">").appendTo($ou);
+		$("<"+$quoi+" name='"+$tab[i][$pourquoi]+"' data-id='"+$tab[i][$id_pourquoi]+"' "+">"+$tab[i][$pourquoi]+"</"+$quoi+">").appendTo($ou);
 	}
 }
 
