@@ -243,32 +243,33 @@
         
         public function modifierTailles($id, $taille, $stock)
         {
-            var_dump("taille : ".$taille);
-            var_dump("stock : ".$stock);
+            // var_dump("taille : ".$taille);
+            // var_dump("stock : ".$stock);
             
-                $sql2 ="
-                    SELECT 
-                        tail_id
-                    FROM
-                        tailles
-                    WHERE tail_nom = :a
-                ";
-                $stmt2 = $this->pdo->prepare($sql2);
-                $stmt2->execute([":a"=>$taille]);
-                $selectTaille = $stmt2->fetchColumn();
+            $sql2 ="
+                SELECT 
+                    tail_id
+                FROM
+                    tailles
+                WHERE tail_nom = :a
+            ";
+            $stmt2 = $this->pdo->prepare($sql2);
+            $stmt2->execute([":a"=>$taille]);
+            $selectTaille = $stmt2->fetchColumn();
+            // var_dump($selectTaille);
             
-             $sql = "
+            $sql = "
                 UPDATE
                     exemplaires
                 SET 
-                    exem_fk_tail=:b,
                     exem_stock=:c
                 WHERE 
-                    exem_fk_tee=:d        
+                    exem_fk_tee=:d 
+                    AND 
+                    exem_fk_tail=:b      
             ";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([":b"=>$selectTaille,":c"=>$stock,":d"=>$id]);
-            
+            $stmt->execute([":b"=>$selectTaille,":c"=>$stock,":d"=>$id]);     
         }
         
         public function supprimerTshirt($id) 
