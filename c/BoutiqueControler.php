@@ -95,15 +95,6 @@
 
 			return $mt;
 		}
-        
-        /* Ajout Alizée */
-        /*public function modifierTaille($taille,$stock,$id)
-        {
-            $Ta = new TshirtAdapter($this->Connec);
-            foreach ($Ta as $key => $value) {
-                $Ta->modifierTaille($taille,$stock,$id)
-            }
-        }*/
 
 		public function supprimerTshirt($id)
 		{
