@@ -35,7 +35,7 @@ $(function(){
 	$("form#recherche select").on("change",gereChangeSelect);
 	// Renvoie les données des options sélectionnés dans l'HTML au DISPATCHER
 		// nouvelle création des options par rapport au donnée renvoyé par DISPATCHER
-	function gereChangeSelect(){
+	function gereChangeSelect(e){
 		$.getJSON(
 			"dispatcher.php",
 			{
@@ -52,9 +52,24 @@ $(function(){
 				
 				if (data["tabNomsTshirt"].length != 0){
 					boucleFor(data["tabNomsTshirt"],"li",$("section#tshirt ul.lTshirt"),"prod_nom","prod_id");
+
+					var boolMat = true, boolCat = true;
 					for (var i = 0; i < data["tabNomsTshirt"].length; i++){
-						$("<option name='"+data["tabNomsTshirt"][i]["mat_nom"]+"'>"+data["tabNomsTshirt"][i]["mat_nom"]+"</option>").appendTo($($selectMatieres));
-						$("<option name='"+data["tabNomsTshirt"][i]["cat_nom"]+"'>"+data["tabNomsTshirt"][i]["cat_nom"]+"</option>").appendTo($($selectCategories));
+						if(boolMat){
+							$("<option name='"+data["tabNomsTshirt"][i]["mat_nom"]+"'>"+data["tabNomsTshirt"][i]["mat_nom"]+"</option>").appendTo($($selectMatieres));
+						}
+						if(boolCat){
+							$("<option name='"+data["tabNomsTshirt"][i]["cat_nom"]+"'>"+data["tabNomsTshirt"][i]["cat_nom"]+"</option>").appendTo($($selectCategories));
+						}
+
+						if(i+1 < data["tabNomsTshirt"].length && data["tabNomsTshirt"][i]["mat_nom"] == data["tabNomsTshirt"][i+1]["mat_nom"]){
+							boolMat = false;
+						}
+						else{boolMat=true;}
+						if(i+1 < data["tabNomsTshirt"].length && data["tabNomsTshirt"][i]["cat_nom"] == data["tabNomsTshirt"][i+1]["cat_nom"]){
+							boolCat = false;
+						}
+						else{boolCat=true;}
 					}
 					setTimeout(lesIcones,10,$("section#tshirt ul.lTshirt li"));
 				}
