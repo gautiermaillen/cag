@@ -28,7 +28,6 @@ $(function(){
 			// "fonctionUtile.js", crée les icones sur chaque li
 			setTimeout(lesIcones,10,$("section#tshirt ul.lTshirt li"));
 		}
-
 	);
 
 	// Les options change en fonction de la selection
@@ -47,8 +46,10 @@ $(function(){
 			function(data){
 				// fonction créée dans le fichier JS "fonctionUtile.js"
 				supprimerEnfant("section#tshirt ul.lTshirt");
-				$($selectMatieres+">option:nth-child(n+2)").remove();
-				$($selectCategories+">option:nth-child(n+2)").remove();
+				if ($(e.target).attr("name") == "createurs"){
+					$($selectMatieres+">option:nth-child(n+2)").remove();
+					$($selectCategories+">option:nth-child(n+2)").remove();
+				}
 				
 				if (data["tabNomsTshirt"].length != 0){
 					boucleFor(data["tabNomsTshirt"],"li",$("section#tshirt ul.lTshirt"),"prod_nom","prod_id");
