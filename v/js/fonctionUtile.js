@@ -37,7 +37,7 @@ function formulaire($tshirt,$element,$tail){
 		}
 	}
 	else{
-		$($element).append("<form><fieldset><legend>"+$tshirt["prod_nom"]+"</legend><ul><li>Prix : "+$tshirt["prod_prix"]+"</li><li>Date : "+$tshirt["prod_date"]+"</li><li>Description : "+$tshirt["prod_desc"]+"</li><li>Créateur : "+$tshirt["cre_nom"]+"</li><li>Matière : "+$tshirt["mat_nom"]+"</li><li>Catégorie : "+$tshirt["cat_nom"]+"</li></ul></fieldset></form>");
+		$($element).append("<form><fieldset><legend>"+$tshirt["prod_nom"]+"</legend><ul><li><img src='./images/"+$tshirt["prod_img_gd"]+"' alt='Grande photo'></li><li><img src='./images/"+$tshirt["prod_img_pt"]+"' alt='Petite photo'></li><li>Prix : "+$tshirt["prod_prix"]+"</li><li>Date : "+$tshirt["prod_date"]+"</li><li>Description : "+$tshirt["prod_desc"]+"</li><li>Créateur : "+$tshirt["cre_nom"]+"</li><li>Matière : "+$tshirt["mat_nom"]+"</li><li>Catégorie : "+$tshirt["cat_nom"]+"</li></ul></fieldset></form>");
 	}
 }
 

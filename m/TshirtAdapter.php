@@ -24,7 +24,9 @@
 		{
 			$sql = "SELECT
 					prod_id,
-					prod_nom
+					prod_nom,
+                    prod_img_gd,
+                    prod_img_pt
 					FROM produits;";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->execute();
