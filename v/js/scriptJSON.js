@@ -15,7 +15,6 @@ $(function(){
 		},
 		function(data){
 			grandTableau = data;
-			console.log(grandTableau);
 			// Donnée reçue
 			// fonction créée dans le fichier JS "fonctionUtile.js"
 			boucleFor(data["tabNomsTshirt"],"li",$("section#tshirt ul.lTshirt"),"prod_nom","prod_id");
