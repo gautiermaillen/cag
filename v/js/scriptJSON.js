@@ -46,10 +46,9 @@ $(function(){
 			function(data){
 				// fonction créée dans le fichier JS "fonctionUtile.js"
 				supprimerEnfant("section#tshirt ul.lTshirt");
-				if ($(e.target).attr("name") == "createurs"){
-					$($selectMatieres+">option:nth-child(n+2)").remove();
-					$($selectCategories+">option:nth-child(n+2)").remove();
-				}
+				
+				$($selectMatieres+">option:nth-child(n+2)").remove();
+				$($selectCategories+">option:nth-child(n+2)").remove();
 				
 				if (data["tabNomsTshirt"].length != 0){
 					boucleFor(data["tabNomsTshirt"],"li",$("section#tshirt ul.lTshirt"),"prod_nom","prod_id");
@@ -76,8 +75,6 @@ $(function(){
 				}
 				else{
 					$("<li>Aucun t-shirt disponible</option>").appendTo($("section#tshirt ul.lTshirt"));
-					// boucleFor(grandTableau["tabMatieres"],"option",$($selectMatieres),"mat_nom","mat_id");
-					// boucleFor(grandTableau["tabCategories"],"option",$($selectCategories),"cat_nom","cat_id");
 				}
 			}
 		);
